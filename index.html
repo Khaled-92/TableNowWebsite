@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TableNow - Modern Restaurant Management System for Reservations, Tables, and Customer Loyalty">
+    <title>TableNow - Restaurant Management Made Simple</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#e6f0ff',
+                            100: '#cce0ff',
+                            500: '#021837',
+                            600: '#011226',
+                            700: '#010d1a',
+                        },
+                        secondary: {
+                            500: '#0a2f5f',
+                            600: '#082649',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'slide-in': 'slideIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] {
+            direction: rtl;
+        }
+        [dir="rtl"] .space-x-2 > * + *,
+        [dir="rtl"] .space-x-3 > * + *,
+        [dir="rtl"] .space-x-4 > * + *,
+        [dir="rtl"] .space-x-8 > * + * {
+            margin-left: 0;
+        }
+        [dir="rtl"] .space-x-2 > * + * {
+            margin-right: 0.5rem;
+        }
+        [dir="rtl"] .space-x-3 > * + * {
+            margin-right: 0.75rem;
+        }
+        [dir="rtl"] .space-x-4 > * + * {
+            margin-right: 1rem;
+        }
+        [dir="rtl"] .space-x-8 > * + * {
+            margin-right: 2rem;
+        }
+        [dir="rtl"] .text-left {
+            text-align: right;
+        }
+        [dir="rtl"] .text-right {
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-2 rounded-xl">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">TableNow</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="#home" data-i18n="nav.home" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Home</a></li>
+                    <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Features</a></li>
+                    <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Pricing</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Contact</a></li>
+
+                    <!-- Language Switcher -->
+                    <li class="relative group">
+                        <button id="currentLang" class="flex items-center space-x-2 text-gray-700 hover:text-primary-500 font-medium transition-colors">
+                            🇬🇧 <span class="hidden sm:inline">English</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2 rounded-t-lg">
+                                <span>🇬🇧</span><span>English</span>
+                            </button>
+                            <button onclick="changeLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2">
+                                <span>🇮🇶</span><span>العربية</span>
+                            </button>
+                            <button onclick="changeLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2 rounded-b-lg">
+                                <span>🇮🇶</span><span>کوردی</span>
+                            </button>
+                        </div>
+                    </li>
+
+                    <li><a href="#" data-i18n="nav.getStarted" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">Get Started</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 focus:outline-none" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="hidden md:hidden mt-4 pb-4" id="mobileMenu">
+                <ul class="flex flex-col space-y-4">
+                    <li><a href="#home" class="text-gray-700 hover:text-primary-500 font-medium block">Home</a></li>
+                    <li><a href="#features" class="text-gray-700 hover:text-primary-500 font-medium block">Features</a></li>
+                    <li><a href="#pricing" class="text-gray-700 hover:text-primary-500 font-medium block">Pricing</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-primary-500 font-medium block">Contact</a></li>
+                    <li><a href="#" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold inline-block text-center">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="space-y-8 animate-fade-in-up">
+                    <div class="inline-block">
+                        <span class="bg-primary-100 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">🎉 #1 Restaurant Management Platform</span>
+                    </div>
+
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+                        Restaurant Management
+                        <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Made Simple</span>
+                    </h1>
+
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Streamline reservations, manage tables, track customers, and build loyalty programs - all in one powerful platform.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center">
+                            Start Free Trial
+                        </a>
+                        <a href="#features" class="border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-500 hover:text-white transition-all duration-300 text-center">
+                            Learn More
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-primary-500">500+</h3>
+                            <p class="text-gray-600 mt-1">Restaurants</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-primary-500">50K+</h3>
+                            <p class="text-gray-600 mt-1">Reservations/Month</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-primary-500">99.9%</h3>
+                            <p class="text-gray-600 mt-1">Uptime</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image/Mockup -->
+                <div class="relative">
+                    <div class="relative z-10 animate-float">
+                        <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl shadow-2xl p-8 transform rotate-3">
+                            <div class="bg-white rounded-2xl p-6 transform -rotate-3">
+                                <div class="w-full h-96 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-primary-500 text-8xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Elements -->
+                    <div class="absolute top-0 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+                    <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse delay-700"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Powerful Features for <span class="text-primary-500">Modern Restaurants</span>
+                </h2>
+                <p class="text-xl text-gray-600">Everything you need to manage your restaurant efficiently</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-primary-500 to-secondary-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-calendar-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Reservations</h3>
+                    <p class="text-gray-600 mb-4">Manage bookings with real-time availability and automated confirmations.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Real-time availability
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            QR code check-in
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Audit trail tracking
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-blue-500 to-cyan-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-table text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Table Management</h3>
+                    <p class="text-gray-600 mb-4">Visualize floor plans and track table status in real-time.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Visual floor plans
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Real-time updates
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Capacity management
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-green-500 to-emerald-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Customer Management</h3>
+                    <p class="text-gray-600 mb-4">Build relationships with comprehensive customer profiles.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Customer profiles
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Visit history
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Preferences & notes
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-yellow-500 to-orange-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Loyalty Programs</h3>
+                    <p class="text-gray-600 mb-4">Create custom tier-based programs to reward customers.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            5-tier system
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Custom benefits
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Auto tier upgrades
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cocktail text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Bar Management</h3>
+                    <p class="text-gray-600 mb-4">Specialized tools for bar operations and time slots.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Time slot booking
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Capacity limits
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Happy hour support
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Analytics & Reports</h3>
+                    <p class="text-gray-600 mb-4">Gain insights with detailed analytics and reports.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Real-time dashboard
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Excel exports
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Custom date ranges
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fab fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Communication Tools</h3>
+                    <p class="text-gray-600 mb-4">Stay connected with integrated WhatsApp messaging.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            WhatsApp integration
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Message templates
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Auto reminders
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary-500 transition-all duration-300 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-indigo-500 to-blue-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Restaurant</h3>
+                    <p class="text-gray-600 mb-4">Manage multiple locations from one account.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Multiple locations
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Centralized control
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            Cross-location reports
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600">Get started in minutes, not hours</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-primary-500 to-secondary-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-3xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Sign Up</h3>
+                    <p class="text-gray-600">Create your account in under 5 minutes</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-blue-500 to-cyan-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-3xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Configure Tables</h3>
+                    <p class="text-gray-600">Set up your floor plan and table layout</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-green-500 to-emerald-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-3xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Accept Reservations</h3>
+                    <p class="text-gray-600">Start managing bookings instantly</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-orange-500 to-red-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-3xl font-bold text-white">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Grow Business</h3>
+                    <p class="text-gray-600">Use analytics to boost retention</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Simple, <span class="text-primary-500">Transparent Pricing</span>
+                </h2>
+                <p class="text-xl text-gray-600">Choose the plan that fits your restaurant</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold text-gray-900">$29</span>
+                        <span class="text-gray-600">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Up to 100 reservations/month
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            1 restaurant location
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Basic analytics
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Email support
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Mobile app access
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional Plan (Featured) -->
+                <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl p-8 transform md:scale-105 shadow-2xl relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold text-white">$79</span>
+                        <span class="text-white/90">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Unlimited reservations
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Up to 3 locations
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Advanced analytics
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Priority support
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Loyalty programs
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            WhatsApp integration
+                        </li>
+                        <li class="flex items-center text-white">
+                            <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
+                            Custom branding
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold text-gray-900">$199</span>
+                        <span class="text-gray-600">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Everything in Professional
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Unlimited locations
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Dedicated account manager
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            24/7 phone support
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            API access
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            Custom integrations
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            White-label option
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary-500 to-secondary-500 gradient-animate">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Restaurant?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Join hundreds of restaurants already using TableNow
+            </p>
+            <button class="bg-white text-primary-600 px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Start Your Free Trial
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600">Have questions? We'd love to hear from you</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Email</h4>
+                            <p class="text-gray-600">support@tablenow.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Phone</h4>
+                            <p class="text-gray-600">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Address</h4>
+                            <p class="text-gray-600">123 Restaurant St, Food City, FC 12345</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Subject" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="5" required
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-2 rounded-xl">
+                            <i class="fas fa-utensils text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">TableNow</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Modern restaurant management made simple.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 TableNow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Translation Files -->
+    <script src="translations/translations.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
