@@ -444,25 +444,84 @@
             to { transform: rotate(360deg); }
         }
 
-        /* App Store Buttons */
+        /* App Store Buttons - Modern Style */
         .app-store-btn {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: #000;
+            gap: 12px;
+            background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
             color: white;
-            padding: 10px 20px;
-            border-radius: 12px;
-            border: none;
+            padding: 14px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .app-store-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        .app-store-btn:hover::before {
+            left: 100%;
         }
         .app-store-btn:hover {
-            background: #333;
-            transform: scale(1.05);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
         }
-        [dir="rtl"] .app-store-btn .text-left {
+        .app-store-btn:active {
+            transform: translateY(-1px) scale(1.01);
+        }
+        .app-store-btn .store-icon {
+            font-size: 28px;
+            opacity: 0.95;
+        }
+        .app-store-btn .store-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .app-store-btn .store-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        .app-store-btn .store-name {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        [dir="rtl"] .app-store-btn .store-text {
             text-align: right;
+        }
+
+        /* Apple button specific */
+        .app-store-btn.apple-btn .store-icon {
+            font-size: 32px;
+        }
+
+        /* Google Play button specific - colorful accent */
+        .app-store-btn.google-btn {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+        }
+        .app-store-btn.google-btn .store-icon {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Coming Soon Modal */
@@ -649,18 +708,18 @@
 
                     <!-- App Store Buttons -->
                     <div class="flex flex-wrap gap-4 pt-6">
-                        <button onclick="showComingSoon()" class="app-store-btn">
-                            <i class="fab fa-apple text-2xl"></i>
-                            <div class="text-left">
-                                <span class="text-xs" data-i18n="hero.appStore.downloadOn">Download on the</span>
-                                <span class="block text-sm font-semibold">App Store</span>
+                        <button onclick="showComingSoon()" class="app-store-btn apple-btn">
+                            <i class="fab fa-apple store-icon"></i>
+                            <div class="store-text">
+                                <span class="store-label" data-i18n="hero.appStore.downloadOn">Download on the</span>
+                                <span class="store-name">App Store</span>
                             </div>
                         </button>
-                        <button onclick="showComingSoon()" class="app-store-btn">
-                            <i class="fab fa-google-play text-xl"></i>
-                            <div class="text-left">
-                                <span class="text-xs" data-i18n="hero.appStore.getItOn">GET IT ON</span>
-                                <span class="block text-sm font-semibold">Google Play</span>
+                        <button onclick="showComingSoon()" class="app-store-btn google-btn">
+                            <i class="fab fa-google-play store-icon"></i>
+                            <div class="store-text">
+                                <span class="store-label" data-i18n="hero.appStore.getItOn">GET IT ON</span>
+                                <span class="store-name">Google Play</span>
                             </div>
                         </button>
                     </div>
