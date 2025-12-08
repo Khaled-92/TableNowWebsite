@@ -65,6 +65,10 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="images/ipad-header.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/logo_tablenow.png" type="image/png">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -251,7 +255,10 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center gap-3 cursor-pointer">
-                    <img src="images/logo_tablenow.png" alt="TableNow" class="h-10 rounded-xl">
+                    <picture>
+                        <source srcset="images/logo_tablenow.webp" type="image/webp">
+                        <img src="images/logo_tablenow.png" alt="TableNow" class="h-10 rounded-xl">
+                    </picture>
                     <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">TableNow</span>
                 </a>
 
@@ -348,7 +355,10 @@
                 <!-- Hero Image/Mockup -->
                 <div class="relative">
                     <div class="relative z-10 animate-float">
-                        <img src="images/ipad-header.png" alt="TableNow - Restaurant Management System" class="w-full max-w-lg mx-auto drop-shadow-2xl">
+                        <picture>
+                            <source srcset="images/ipad-header.webp" type="image/webp">
+                            <img src="images/ipad-header.png" alt="TableNow - Restaurant Management System" class="w-full max-w-lg mx-auto drop-shadow-2xl" loading="eager" fetchpriority="high">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -795,7 +805,10 @@
                 <!-- Brand -->
                 <div>
                     <div class="mb-4">
-                        <img src="images/logo_tablenow.png" alt="TableNow" class="h-8 rounded-lg">
+                        <picture>
+                        <source srcset="images/logo_tablenow.webp" type="image/webp">
+                        <img src="images/logo_tablenow.png" alt="TableNow" class="h-8 rounded-lg" loading="lazy">
+                    </picture>
                     </div>
                     <p data-i18n="footer.tagline" class="text-gray-400">Modern restaurant management made simple.</p>
                 </div>

@@ -1,0 +1,38 @@
+# robots.txt for TableNow - https://table-now.co
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow crawling of internal/non-public directories (if any)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow crawling of images and assets
+Allow: /images/
+Allow: /js/
+Allow: /css/
+Allow: /translations/
+
+# Sitemap location
+Sitemap: https://table-now.co/sitemap.xml
+
+# Crawl-delay for respectful crawling (optional)
+Crawl-delay: 1
+
+# Host directive (for Yandex)
+Host: https://table-now.co
