@@ -209,6 +209,77 @@ const translations = {
         // WhatsApp Widget
         whatsapp: {
             tooltip: "Chat with us"
+        },
+        // Trusted By
+        trustedBy: {
+            title: "Trusted by Leading Restaurants"
+        },
+        // Testimonials
+        testimonials: {
+            title: "What Our",
+            titleHighlight: "Customers Say",
+            subtitle: "Real feedback from restaurant owners using TableNow",
+            testimonial1: {
+                text: "TableNow has completely transformed how we manage reservations. Our no-show rate dropped by 40% thanks to the WhatsApp reminders!",
+                name: "Ahmed Khalil",
+                role: "Owner, Al-Rashid Restaurant"
+            },
+            testimonial2: {
+                text: "The loyalty program feature has increased our repeat customers by 60%. The analytics help us understand our busiest times perfectly.",
+                name: "Sarah Mohammed",
+                role: "Manager, Café Beirut"
+            },
+            testimonial3: {
+                text: "Managing 3 restaurant locations used to be a nightmare. Now with TableNow, I can see everything from one dashboard. Absolutely essential!",
+                name: "Omar Hassan",
+                role: "CEO, Grill House Group"
+            }
+        },
+        // FAQ
+        faq: {
+            title: "Frequently Asked",
+            titleHighlight: "Questions",
+            subtitle: "Everything you need to know about TableNow",
+            q1: {
+                question: "What is TableNow and how does it work?",
+                answer: "TableNow is a comprehensive restaurant management platform that helps you manage reservations, tables, customer relationships, and loyalty programs. Simply sign up, configure your restaurant settings, and start accepting reservations within minutes."
+            },
+            q2: {
+                question: "Is there a free trial available?",
+                answer: "Yes! We offer a 14-day free trial with full access to all features. No credit card required to get started. You can explore all the capabilities of TableNow before making any commitment."
+            },
+            q3: {
+                question: "Does TableNow support Arabic and Kurdish languages?",
+                answer: "Absolutely! TableNow fully supports English, Arabic, and Kurdish languages with complete RTL (right-to-left) support. Switch languages anytime from the settings, and all your data will be displayed correctly."
+            },
+            q4: {
+                question: "Can I manage multiple restaurant locations?",
+                answer: "Yes, our Professional plan supports up to 3 locations, and Enterprise customers get unlimited locations. You can manage all branches from a single dashboard with centralized analytics and reporting."
+            },
+            q5: {
+                question: "How does the WhatsApp integration work?",
+                answer: "TableNow integrates seamlessly with WhatsApp to send automated booking confirmations, reminders, and promotional messages to your customers. This helps reduce no-shows and keeps customers engaged with your restaurant."
+            },
+            q6: {
+                question: "What payment methods do you accept?",
+                answer: "We accept various payment methods including credit cards, bank transfers, and local payment options available in the Middle East. Contact our sales team for specific payment arrangements in your region."
+            }
+        },
+        // Newsletter
+        newsletter: {
+            title: "Stay Updated with TableNow",
+            subtitle: "Get the latest tips, features, and special offers delivered to your inbox.",
+            placeholder: "Enter your email",
+            button: "Subscribe",
+            privacy: "We respect your privacy. Unsubscribe at any time."
+        },
+        // Exit Intent
+        exitIntent: {
+            title: "Wait! Don't Leave Yet",
+            message: "Get an exclusive 20% discount on your first month when you sign up today!",
+            placeholder: "Enter your email",
+            button: "Claim My Discount",
+            noThanks: "No thanks, I'll pay full price"
         }
     },
     ar: {
@@ -421,6 +492,77 @@ const translations = {
         // WhatsApp Widget
         whatsapp: {
             tooltip: "تحدث معنا"
+        },
+        // Trusted By
+        trustedBy: {
+            title: "موثوق به من قبل المطاعم الرائدة"
+        },
+        // Testimonials
+        testimonials: {
+            title: "ماذا يقول",
+            titleHighlight: "عملاؤنا",
+            subtitle: "آراء حقيقية من أصحاب المطاعم الذين يستخدمون TableNow",
+            testimonial1: {
+                text: "لقد غيّر TableNow تماماً طريقة إدارتنا للحجوزات. انخفض معدل عدم الحضور لدينا بنسبة 40% بفضل تذكيرات واتساب!",
+                name: "أحمد خليل",
+                role: "مالك، مطعم الرشيد"
+            },
+            testimonial2: {
+                text: "ميزة برنامج الولاء زادت عملاءنا المتكررين بنسبة 60%. التحليلات تساعدنا على فهم أوقات الذروة بشكل مثالي.",
+                name: "سارة محمد",
+                role: "مديرة، كافيه بيروت"
+            },
+            testimonial3: {
+                text: "كانت إدارة 3 مواقع مطاعم كابوساً. الآن مع TableNow، أستطيع رؤية كل شيء من لوحة تحكم واحدة. ضروري للغاية!",
+                name: "عمر حسن",
+                role: "الرئيس التنفيذي، مجموعة غريل هاوس"
+            }
+        },
+        // FAQ
+        faq: {
+            title: "الأسئلة",
+            titleHighlight: "الشائعة",
+            subtitle: "كل ما تحتاج معرفته عن TableNow",
+            q1: {
+                question: "ما هو TableNow وكيف يعمل؟",
+                answer: "TableNow هي منصة شاملة لإدارة المطاعم تساعدك على إدارة الحجوزات والطاولات وعلاقات العملاء وبرامج الولاء. ببساطة سجّل، قم بتكوين إعدادات مطعمك، وابدأ في قبول الحجوزات في دقائق."
+            },
+            q2: {
+                question: "هل تتوفر فترة تجريبية مجانية؟",
+                answer: "نعم! نقدم فترة تجريبية مجانية لمدة 14 يوماً مع وصول كامل لجميع الميزات. لا حاجة لبطاقة ائتمان للبدء. يمكنك استكشاف جميع إمكانيات TableNow قبل اتخاذ أي التزام."
+            },
+            q3: {
+                question: "هل يدعم TableNow اللغتين العربية والكردية؟",
+                answer: "بالتأكيد! يدعم TableNow بشكل كامل اللغات الإنجليزية والعربية والكردية مع دعم كامل للكتابة من اليمين إلى اليسار. قم بتبديل اللغات في أي وقت من الإعدادات، وسيتم عرض جميع بياناتك بشكل صحيح."
+            },
+            q4: {
+                question: "هل يمكنني إدارة مواقع مطاعم متعددة؟",
+                answer: "نعم، خطتنا الاحترافية تدعم حتى 3 مواقع، ويحصل عملاء المؤسسات على مواقع غير محدودة. يمكنك إدارة جميع الفروع من لوحة تحكم واحدة مع تحليلات وتقارير مركزية."
+            },
+            q5: {
+                question: "كيف يعمل تكامل واتساب؟",
+                answer: "يتكامل TableNow بسلاسة مع واتساب لإرسال تأكيدات الحجز الآلية والتذكيرات والرسائل الترويجية لعملائك. هذا يساعد على تقليل حالات عدم الحضور ويبقي العملاء متفاعلين مع مطعمك."
+            },
+            q6: {
+                question: "ما طرق الدفع التي تقبلونها؟",
+                answer: "نقبل طرق دفع متنوعة تشمل بطاقات الائتمان والتحويلات البنكية وخيارات الدفع المحلية المتاحة في الشرق الأوسط. تواصل مع فريق المبيعات لترتيبات الدفع المحددة في منطقتك."
+            }
+        },
+        // Newsletter
+        newsletter: {
+            title: "ابقَ على اطلاع مع TableNow",
+            subtitle: "احصل على أحدث النصائح والميزات والعروض الخاصة مباشرة إلى بريدك.",
+            placeholder: "أدخل بريدك الإلكتروني",
+            button: "اشترك",
+            privacy: "نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت."
+        },
+        // Exit Intent
+        exitIntent: {
+            title: "انتظر! لا تغادر بعد",
+            message: "احصل على خصم حصري 20% على شهرك الأول عند التسجيل اليوم!",
+            placeholder: "أدخل بريدك الإلكتروني",
+            button: "احصل على خصمي",
+            noThanks: "لا شكراً، سأدفع السعر الكامل"
         }
     },
     ku: {
@@ -633,6 +775,77 @@ const translations = {
         // WhatsApp Widget
         whatsapp: {
             tooltip: "قسەمان لەگەڵ بکە"
+        },
+        // Trusted By
+        trustedBy: {
+            title: "متمانەپێکراو لەلایەن چێشتخانە پێشەنگەکان"
+        },
+        // Testimonials
+        testimonials: {
+            title: "کڕیارەکانمان",
+            titleHighlight: "چی دەڵێن",
+            subtitle: "ڕاوبۆچوونی ڕاستەقینە لە خاوەنکاری چێشتخانەکان کە TableNow بەکاردەهێنن",
+            testimonial1: {
+                text: "TableNow بە تەواوی شێوازی بەڕێوەبردنی حجزەکانمانی گۆڕی. ڕێژەی نەهاتن 40% کەمبووەوە بەهۆی بیرخستنەوەکانی واتساپ!",
+                name: "ئەحمەد خەلیل",
+                role: "خاوەن، چێشتخانەی ڕەشید"
+            },
+            testimonial2: {
+                text: "تایبەتمەندی بەرنامەی دڵسۆزی کڕیارە دووبارەکانمانی 60% زیادکرد. شیکارییەکان یارمەتیمان دەدەن کاتە قەرەباڵغترەکان بەتەواوی تێبگەین.",
+                name: "سارا محەمەد",
+                role: "بەڕێوەبەر، کافێ بەیروت"
+            },
+            testimonial3: {
+                text: "بەڕێوەبردنی 3 شوێنی چێشتخانە کابووسێک بوو. ئێستا لەگەڵ TableNow، دەتوانم هەموو شتێک لە یەک داشبۆردەوە ببینم. زۆر پێویستە!",
+                name: "عومەر حەسەن",
+                role: "سەرۆکی جێبەجێکار، گروپی گریل هاوس"
+            }
+        },
+        // FAQ
+        faq: {
+            title: "پرسیارە",
+            titleHighlight: "باوەکان",
+            subtitle: "هەموو ئەوەی پێویستە بیزانیت دەربارەی TableNow",
+            q1: {
+                question: "TableNow چییە و چۆن کاردەکات؟",
+                answer: "TableNow پلاتفۆرمێکی تەواوی بەڕێوەبردنی چێشتخانەیە کە یارمەتیت دەدات لە بەڕێوەبردنی حجز، مێز، پەیوەندی کڕیار، و بەرنامەکانی دڵسۆزی. بە سادەیی تۆمار بکە، ڕێکخستنەکانی چێشتخانەکەت ئامادە بکە، و لە خولەکەکاندا دەست بە وەرگرتنی حجز بکە."
+            },
+            q2: {
+                question: "ئایا تاقیکردنەوەی بێبەرامبەر بەردەستە؟",
+                answer: "بەڵێ! تاقیکردنەوەی بێبەرامبەری 14 ڕۆژ پێشکەش دەکەین بە دەستڕاگەیشتنی تەواو بۆ هەموو تایبەتمەندییەکان. پێویستی بە کارتی بانکی نییە بۆ دەستپێکردن. دەتوانیت هەموو توانای TableNow بپشکنیت پێش هەر پابەندبوونێک."
+            },
+            q3: {
+                question: "ئایا TableNow زمانی عەرەبی و کوردی پشتگیری دەکات؟",
+                answer: "بەڵێ! TableNow بە تەواوی زمانی ئینگلیزی، عەرەبی، و کوردی پشتگیری دەکات لەگەڵ پشتگیری تەواوی نووسین لە ڕاست بۆ چەپ. لە هەر کاتێک لە ڕێکخستنەکانەوە زمان بگۆڕە، و هەموو داتاکانت بە دروستی نیشان دەدرێن."
+            },
+            q4: {
+                question: "ئایا دەتوانم چەندین شوێنی چێشتخانە بەڕێوە ببەم؟",
+                answer: "بەڵێ، پلانی پیشەیی ئێمە تا 3 شوێن پشتگیری دەکات، و کڕیارانی ناوەندەکان شوێنی بێسنوور وەردەگرن. دەتوانیت هەموو لقەکان لە یەک داشبۆردەوە بەڕێوە ببەیت لەگەڵ شیکاری و ڕاپۆرتی ناوەندی."
+            },
+            q5: {
+                question: "یەکخستنی واتساپ چۆن کاردەکات؟",
+                answer: "TableNow بە ئاسانی لەگەڵ واتساپ یەکدەخرێت بۆ ناردنی پشتڕاستکردنەوەی حجزی خۆکار، بیرخستنەوەکان، و نامە ڕیکلامییەکان بۆ کڕیارەکانت. ئەمە یارمەتی دەدات کەمکردنەوەی نەهاتن و کڕیاران بە چالاکی لەگەڵ چێشتخانەکەت."
+            },
+            q6: {
+                question: "چ ڕێگەی پارەدانتان پەسەند دەکەن؟",
+                answer: "چەندین ڕێگەی پارەدان پەسەند دەکەین لەوانە کارتی بانکی، گواستنەوەی بانکی، و هەڵبژاردەکانی پارەدانی ناوخۆیی کە لە ڕۆژهەڵاتی ناوەڕاستدا بەردەستن. پەیوەندی بە تیمی فرۆشتنەوە بکە بۆ ڕێکخستنی پارەدان لە ناوچەکەت."
+            }
+        },
+        // Newsletter
+        newsletter: {
+            title: "لەگەڵ TableNow نوێ بە",
+            subtitle: "دوایین ئامۆژگاری، تایبەتمەندی، و پێشنیارە تایبەتەکان وەربگرە بۆ ئیمەیڵەکەت.",
+            placeholder: "ئیمەیڵەکەت بنووسە",
+            button: "بەشداربوون",
+            privacy: "ڕێزی تایبەتمەندیت دەگرین. لە هەر کاتێکدا دەتوانیت لەبەشداریبوون لاببیت."
+        },
+        // Exit Intent
+        exitIntent: {
+            title: "چاوەڕێ بکە! هێشتا مەڕۆ",
+            message: "داشکاندنی تایبەتی 20% وەربگرە لە یەکەم مانگت کاتێک ئەمڕۆ تۆمار دەکەیت!",
+            placeholder: "ئیمەیڵەکەت بنووسە",
+            button: "داشکاندنەکەم وەربگرە",
+            noThanks: "نەخێر سوپاس، نرخی تەواو دەدەم"
         }
     }
 };

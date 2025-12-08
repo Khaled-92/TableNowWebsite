@@ -372,6 +372,133 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// ===== FAQ ACCORDION =====
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question?.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer')?.classList.add('hidden');
+            }
+        });
+
+        // Toggle current item
+        if (isActive) {
+            item.classList.remove('active');
+            answer?.classList.add('hidden');
+        } else {
+            item.classList.add('active');
+            answer?.classList.remove('hidden');
+        }
+    });
+});
+
+// ===== NEWSLETTER FORM =====
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterEmail = document.getElementById('newsletterEmail');
+
+newsletterForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = newsletterEmail.value;
+    if (emailRegex.test(email)) {
+        // Simulate subscription (replace with actual API call)
+        const button = newsletterForm.querySelector('button');
+        const originalText = button.textContent;
+        button.disabled = true;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        setTimeout(() => {
+            button.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            newsletterEmail.value = '';
+
+            setTimeout(() => {
+                button.disabled = false;
+                button.textContent = originalText;
+            }, 3000);
+        }, 1500);
+    }
+});
+
+// ===== EXIT INTENT POPUP =====
+const exitIntentPopup = document.getElementById('exitIntentPopup');
+const exitIntentForm = document.getElementById('exitIntentForm');
+let exitIntentShown = false;
+
+function showExitIntent() {
+    if (!exitIntentShown && !localStorage.getItem('exitIntentDismissed')) {
+        exitIntentPopup.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        exitIntentShown = true;
+    }
+}
+
+function hideExitIntent(event) {
+    if (event && event.target !== exitIntentPopup) return;
+    exitIntentPopup.classList.remove('visible');
+    document.body.style.overflow = '';
+    localStorage.setItem('exitIntentDismissed', 'true');
+}
+
+// Detect exit intent (mouse leaving viewport at top)
+document.addEventListener('mouseout', (e) => {
+    if (e.clientY <= 0 && !exitIntentShown) {
+        // Small delay to avoid triggering on quick movements
+        setTimeout(() => {
+            showExitIntent();
+        }, 100);
+    }
+});
+
+// Also show after 30 seconds if user hasn't interacted much
+let scrollDepth = 0;
+window.addEventListener('scroll', () => {
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    scrollDepth = Math.max(scrollDepth, scrollPercent);
+});
+
+setTimeout(() => {
+    if (scrollDepth < 50 && !exitIntentShown) {
+        showExitIntent();
+    }
+}, 30000);
+
+// Exit intent form submission
+exitIntentForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('exitIntentEmail').value;
+    if (emailRegex.test(email)) {
+        const button = exitIntentForm.querySelector('button');
+        button.disabled = true;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+        setTimeout(() => {
+            button.innerHTML = '<i class="fas fa-check mr-2"></i> Discount Claimed!';
+            document.getElementById('exitIntentEmail').value = '';
+
+            setTimeout(() => {
+                hideExitIntent();
+            }, 2000);
+        }, 1500);
+    }
+});
+
+// Close exit intent with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && exitIntentPopup?.classList.contains('visible')) {
+        hideExitIntent();
+    }
+});
+
 // ===== CONSOLE BRANDING =====
 console.log('%c TableNow ', 'background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; font-size: 24px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
 console.log('%c Restaurant Management Made Simple 🍽️ ', 'color: #6366f1; font-size: 16px; font-weight: 600;');

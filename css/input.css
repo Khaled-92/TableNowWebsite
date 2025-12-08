@@ -510,3 +510,193 @@ input.success, textarea.success {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(2, 24, 55, 0.3);
 }
+
+/* Client Logos Scrolling Animation */
+.client-logos-wrapper {
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+.client-logos-track {
+    width: max-content;
+}
+@keyframes scroll-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+    animation: scroll-logos 30s linear infinite;
+}
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+[dir="rtl"] .testimonial-card .absolute {
+    left: 8px;
+    right: auto;
+}
+
+/* FAQ Accordion */
+.faq-item {
+    transition: all 0.3s ease;
+}
+.faq-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+.faq-item.active .faq-answer {
+    display: block;
+}
+.faq-answer {
+    animation: faq-fade-in 0.3s ease;
+}
+@keyframes faq-fade-in {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Exit Intent Popup */
+.exit-intent-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.exit-intent-popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.exit-intent-content {
+    background: white;
+    padding: 48px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 450px;
+    margin: 20px;
+    transform: scale(0.9) translateY(-20px);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+.exit-intent-popup.visible .exit-intent-content {
+    transform: scale(1) translateY(0);
+}
+.exit-intent-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.exit-intent-close:hover {
+    background: #e5e7eb;
+    transform: rotate(90deg);
+}
+.exit-intent-close i {
+    color: #6b7280;
+    font-size: 16px;
+}
+[dir="rtl"] .exit-intent-close {
+    right: auto;
+    left: 16px;
+}
+.exit-intent-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    animation: bounce-gentle 2s ease-in-out infinite;
+}
+@keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.exit-intent-icon i {
+    color: white;
+    font-size: 36px;
+}
+.exit-intent-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+.exit-intent-text {
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+.exit-intent-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.exit-intent-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.exit-intent-input:focus {
+    outline: none;
+    border-color: #021837;
+}
+.exit-intent-button {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.exit-intent-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+.exit-intent-skip {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.exit-intent-skip:hover {
+    color: #6b7280;
+    text-decoration: underline;
+}
