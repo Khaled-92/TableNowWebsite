@@ -41,22 +41,22 @@ function updateContent() {
         const key = element.getAttribute('data-i18n');
         const value = getNestedTranslation(t, key);
 
-        if (value) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = value;
-            } else {
-                element.textContent = value;
-            }
+        if (value !== undefined && value !== null) {
+            element.textContent = value;
+        }
+    });
+
+    // Update all elements with data-i18n-placeholder attribute (for form inputs)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        const value = getNestedTranslation(t, key);
+
+        if (value !== undefined && value !== null) {
+            element.placeholder = value;
         }
     });
 
     // Update language dropdown button
-    const langFlags = {
-        en: '🇬🇧',
-        ar: '🇮🇶',
-        ku: '🇮🇶'
-    };
-
     const langNames = {
         en: 'English',
         ar: 'العربية',
@@ -65,7 +65,7 @@ function updateContent() {
 
     const currentLangBtn = document.getElementById('currentLang');
     if (currentLangBtn) {
-        currentLangBtn.innerHTML = `${langFlags[currentLang]} <span class="hidden sm:inline">${langNames[currentLang]}</span>`;
+        currentLangBtn.innerHTML = `<span>${langNames[currentLang]}</span> <i class="fas fa-chevron-down text-xs"></i>`;
     }
 }
 

@@ -12,6 +12,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Google Fonts - Cairo for Arabic/Kurdish -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
@@ -68,6 +73,7 @@
         /* RTL Support */
         [dir="rtl"] {
             direction: rtl;
+            font-family: 'Cairo', sans-serif;
         }
         [dir="rtl"] .space-x-2 > * + *,
         [dir="rtl"] .space-x-3 > * + *,
@@ -95,22 +101,20 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="antialiased" style="font-family: 'Cairo', sans-serif;">
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer">
-                    <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-2 rounded-xl">
-                        <i class="fas fa-utensils text-white text-2xl"></i>
-                    </div>
+                <a href="#home" class="flex items-center gap-3 cursor-pointer">
+                    <img src="images/logo_tablenow.png" alt="TableNow" class="h-10 rounded-xl">
                     <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">TableNow</span>
-                </div>
+                </a>
 
                 <!-- Desktop Menu -->
-                <ul class="hidden md:flex items-center space-x-8">
+                <ul class="hidden md:flex items-center gap-8">
                     <li><a href="#home" data-i18n="nav.home" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Home</a></li>
                     <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Features</a></li>
                     <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Pricing</a></li>
@@ -118,19 +122,19 @@
 
                     <!-- Language Switcher -->
                     <li class="relative group">
-                        <button id="currentLang" class="flex items-center space-x-2 text-gray-700 hover:text-primary-500 font-medium transition-colors">
-                            🇬🇧 <span class="hidden sm:inline">English</span>
+                        <button id="currentLang" class="flex items-center gap-2 text-gray-700 hover:text-primary-500 font-medium transition-colors">
+                            <span>English</span>
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                            <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2 rounded-t-lg">
-                                <span>🇬🇧</span><span>English</span>
+                            <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-gray-50 rounded-t-lg">
+                                English
                             </button>
-                            <button onclick="changeLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2">
-                                <span>🇮🇶</span><span>العربية</span>
+                            <button onclick="changeLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-gray-50">
+                                العربية
                             </button>
-                            <button onclick="changeLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center space-x-2 rounded-b-lg">
-                                <span>🇮🇶</span><span>کوردی</span>
+                            <button onclick="changeLanguage('ku')" class="w-full text-left px-4 py-2 hover:bg-gray-50 rounded-b-lg">
+                                کوردی
                             </button>
                         </div>
                     </li>
@@ -147,11 +151,11 @@
             <!-- Mobile Menu -->
             <div class="hidden md:hidden mt-4 pb-4" id="mobileMenu">
                 <ul class="flex flex-col space-y-4">
-                    <li><a href="#home" class="text-gray-700 hover:text-primary-500 font-medium block">Home</a></li>
-                    <li><a href="#features" class="text-gray-700 hover:text-primary-500 font-medium block">Features</a></li>
-                    <li><a href="#pricing" class="text-gray-700 hover:text-primary-500 font-medium block">Pricing</a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-primary-500 font-medium block">Contact</a></li>
-                    <li><a href="#" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold inline-block text-center">Get Started</a></li>
+                    <li><a href="#home" data-i18n="nav.home" class="text-gray-700 hover:text-primary-500 font-medium block">Home</a></li>
+                    <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium block">Features</a></li>
+                    <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium block">Pricing</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium block">Contact</a></li>
+                    <li><a href="#" data-i18n="nav.getStarted" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold inline-block text-center">Get Started</a></li>
                 </ul>
             </div>
         </div>
@@ -164,59 +168,46 @@
                 <!-- Hero Text -->
                 <div class="space-y-8 animate-fade-in-up">
                     <div class="inline-block">
-                        <span class="bg-primary-100 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">🎉 #1 Restaurant Management Platform</span>
+                        <span data-i18n="hero.badge" class="bg-primary-100 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">🎉 #1 Restaurant Management Platform</span>
                     </div>
 
                     <h1 class="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
-                        Restaurant Management
-                        <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Made Simple</span>
+                        <span data-i18n="hero.title">Restaurant Management</span>
+                        <span data-i18n="hero.titleHighlight" class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Made Simple</span>
                     </h1>
 
-                    <p class="text-xl text-gray-600 leading-relaxed">
+                    <p data-i18n="hero.description" class="text-xl text-gray-600 leading-relaxed">
                         Streamline reservations, manage tables, track customers, and build loyalty programs - all in one powerful platform.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center">
+                        <a href="#" data-i18n="hero.startTrial" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center">
                             Start Free Trial
                         </a>
-                        <a href="#features" class="border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-500 hover:text-white transition-all duration-300 text-center">
+                        <a href="#features" data-i18n="hero.learnMore" class="border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-500 hover:text-white transition-all duration-300 text-center">
                             Learn More
                         </a>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6 pt-8">
-                        <div class="text-center">
-                            <h3 class="text-4xl font-bold text-primary-500">500+</h3>
-                            <p class="text-gray-600 mt-1">Restaurants</p>
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center gap-6 pt-6">
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span data-i18n="hero.trust.noCard">No credit card required</span>
                         </div>
-                        <div class="text-center">
-                            <h3 class="text-4xl font-bold text-primary-500">50K+</h3>
-                            <p class="text-gray-600 mt-1">Reservations/Month</p>
-                        </div>
-                        <div class="text-center">
-                            <h3 class="text-4xl font-bold text-primary-500">99.9%</h3>
-                            <p class="text-gray-600 mt-1">Uptime</p>
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span data-i18n="hero.trust.freeTrial">14-day free trial</span>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Hero Image/Mockup -->
                 <div class="relative">
                     <div class="relative z-10 animate-float">
-                        <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl shadow-2xl p-8 transform rotate-3">
-                            <div class="bg-white rounded-2xl p-6 transform -rotate-3">
-                                <div class="w-full h-96 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl flex items-center justify-center">
-                                    <i class="fas fa-mobile-alt text-primary-500 text-8xl"></i>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="images/ipad-header.png" alt="TableNow - Restaurant Management System" class="w-full max-w-lg mx-auto drop-shadow-2xl">
                     </div>
-
-                    <!-- Decorative Elements -->
-                    <div class="absolute top-0 right-0 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-                    <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse delay-700"></div>
                 </div>
             </div>
         </div>
@@ -228,9 +219,9 @@
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Powerful Features for <span class="text-primary-500">Modern Restaurants</span>
+                    <span data-i18n="features.title">Powerful Features for</span> <span data-i18n="features.titleHighlight" class="text-primary-500">Modern Restaurants</span>
                 </h2>
-                <p class="text-xl text-gray-600">Everything you need to manage your restaurant efficiently</p>
+                <p data-i18n="features.subtitle" class="text-xl text-gray-600">Everything you need to manage your restaurant efficiently</p>
             </div>
 
             <!-- Features Grid -->
@@ -240,20 +231,20 @@
                     <div class="bg-gradient-to-br from-primary-500 to-secondary-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-calendar-check text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Reservations</h3>
-                    <p class="text-gray-600 mb-4">Manage bookings with real-time availability and automated confirmations.</p>
+                    <h3 data-i18n="features.feature1.title" class="text-xl font-bold text-gray-900 mb-3">Smart Reservations</h3>
+                    <p data-i18n="features.feature1.description" class="text-gray-600 mb-4">Manage bookings with real-time availability and automated confirmations.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Real-time availability
+                            <span data-i18n="features.feature1.items.0">Real-time availability</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            QR code check-in
+                            <span data-i18n="features.feature1.items.1">QR code check-in</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Audit trail tracking
+                            <span data-i18n="features.feature1.items.2">Audit trail tracking</span>
                         </li>
                     </ul>
                 </div>
@@ -263,20 +254,20 @@
                     <div class="bg-gradient-to-br from-blue-500 to-cyan-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-table text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Table Management</h3>
-                    <p class="text-gray-600 mb-4">Visualize floor plans and track table status in real-time.</p>
+                    <h3 data-i18n="features.feature2.title" class="text-xl font-bold text-gray-900 mb-3">Table Management</h3>
+                    <p data-i18n="features.feature2.description" class="text-gray-600 mb-4">Visualize floor plans and track table status in real-time.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Visual floor plans
+                            <span data-i18n="features.feature2.items.0">Visual floor plans</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Real-time updates
+                            <span data-i18n="features.feature2.items.1">Real-time updates</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Capacity management
+                            <span data-i18n="features.feature2.items.2">Capacity management</span>
                         </li>
                     </ul>
                 </div>
@@ -286,20 +277,20 @@
                     <div class="bg-gradient-to-br from-green-500 to-emerald-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-users text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Customer Management</h3>
-                    <p class="text-gray-600 mb-4">Build relationships with comprehensive customer profiles.</p>
+                    <h3 data-i18n="features.feature3.title" class="text-xl font-bold text-gray-900 mb-3">Customer Management</h3>
+                    <p data-i18n="features.feature3.description" class="text-gray-600 mb-4">Build relationships with comprehensive customer profiles.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Customer profiles
+                            <span data-i18n="features.feature3.items.0">Customer profiles</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Visit history
+                            <span data-i18n="features.feature3.items.1">Visit history</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Preferences & notes
+                            <span data-i18n="features.feature3.items.2">Preferences & notes</span>
                         </li>
                     </ul>
                 </div>
@@ -309,20 +300,20 @@
                     <div class="bg-gradient-to-br from-yellow-500 to-orange-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-trophy text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Loyalty Programs</h3>
-                    <p class="text-gray-600 mb-4">Create custom tier-based programs to reward customers.</p>
+                    <h3 data-i18n="features.feature4.title" class="text-xl font-bold text-gray-900 mb-3">Loyalty Programs</h3>
+                    <p data-i18n="features.feature4.description" class="text-gray-600 mb-4">Create custom tier-based programs to reward customers.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            5-tier system
+                            <span data-i18n="features.feature4.items.0">5-tier system</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Custom benefits
+                            <span data-i18n="features.feature4.items.1">Custom benefits</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Auto tier upgrades
+                            <span data-i18n="features.feature4.items.2">Auto tier upgrades</span>
                         </li>
                     </ul>
                 </div>
@@ -332,20 +323,20 @@
                     <div class="bg-gradient-to-br from-pink-500 to-rose-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-cocktail text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Bar Management</h3>
-                    <p class="text-gray-600 mb-4">Specialized tools for bar operations and time slots.</p>
+                    <h3 data-i18n="features.feature5.title" class="text-xl font-bold text-gray-900 mb-3">Bar Management</h3>
+                    <p data-i18n="features.feature5.description" class="text-gray-600 mb-4">Specialized tools for bar operations and time slots.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Time slot booking
+                            <span data-i18n="features.feature5.items.0">Time slot booking</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Capacity limits
+                            <span data-i18n="features.feature5.items.1">Capacity limits</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Happy hour support
+                            <span data-i18n="features.feature5.items.2">Happy hour support</span>
                         </li>
                     </ul>
                 </div>
@@ -355,20 +346,20 @@
                     <div class="bg-gradient-to-br from-purple-500 to-pink-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Analytics & Reports</h3>
-                    <p class="text-gray-600 mb-4">Gain insights with detailed analytics and reports.</p>
+                    <h3 data-i18n="features.feature6.title" class="text-xl font-bold text-gray-900 mb-3">Analytics & Reports</h3>
+                    <p data-i18n="features.feature6.description" class="text-gray-600 mb-4">Gain insights with detailed analytics and reports.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Real-time dashboard
+                            <span data-i18n="features.feature6.items.0">Real-time dashboard</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Excel exports
+                            <span data-i18n="features.feature6.items.1">Excel exports</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Custom date ranges
+                            <span data-i18n="features.feature6.items.2">Custom date ranges</span>
                         </li>
                     </ul>
                 </div>
@@ -378,20 +369,20 @@
                     <div class="bg-gradient-to-br from-green-500 to-teal-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fab fa-whatsapp text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Communication Tools</h3>
-                    <p class="text-gray-600 mb-4">Stay connected with integrated WhatsApp messaging.</p>
+                    <h3 data-i18n="features.feature7.title" class="text-xl font-bold text-gray-900 mb-3">Communication Tools</h3>
+                    <p data-i18n="features.feature7.description" class="text-gray-600 mb-4">Stay connected with integrated WhatsApp messaging.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            WhatsApp integration
+                            <span data-i18n="features.feature7.items.0">WhatsApp integration</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Message templates
+                            <span data-i18n="features.feature7.items.1">Message templates</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Auto reminders
+                            <span data-i18n="features.feature7.items.2">Auto reminders</span>
                         </li>
                     </ul>
                 </div>
@@ -401,20 +392,20 @@
                     <div class="bg-gradient-to-br from-indigo-500 to-blue-500 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-building text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Restaurant</h3>
-                    <p class="text-gray-600 mb-4">Manage multiple locations from one account.</p>
+                    <h3 data-i18n="features.feature8.title" class="text-xl font-bold text-gray-900 mb-3">Multi-Restaurant</h3>
+                    <p data-i18n="features.feature8.description" class="text-gray-600 mb-4">Manage multiple locations from one account.</p>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Multiple locations
+                            <span data-i18n="features.feature8.items.0">Multiple locations</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Centralized control
+                            <span data-i18n="features.feature8.items.1">Centralized control</span>
                         </li>
                         <li class="flex items-center text-gray-600 text-sm">
                             <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                            Cross-location reports
+                            <span data-i18n="features.feature8.items.2">Cross-location reports</span>
                         </li>
                     </ul>
                 </div>
@@ -426,8 +417,8 @@
     <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How It Works</h2>
-                <p class="text-xl text-gray-600">Get started in minutes, not hours</p>
+                <h2 data-i18n="howItWorks.title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p data-i18n="howItWorks.subtitle" class="text-xl text-gray-600">Get started in minutes, not hours</p>
             </div>
 
             <div class="grid md:grid-cols-4 gap-8">
@@ -435,32 +426,32 @@
                     <div class="bg-gradient-to-br from-primary-500 to-secondary-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <span class="text-3xl font-bold text-white">1</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Sign Up</h3>
-                    <p class="text-gray-600">Create your account in under 5 minutes</p>
+                    <h3 data-i18n="howItWorks.step1.title" class="text-xl font-bold text-gray-900 mb-3">Sign Up</h3>
+                    <p data-i18n="howItWorks.step1.description" class="text-gray-600">Create your account in under 5 minutes</p>
                 </div>
 
                 <div class="text-center">
                     <div class="bg-gradient-to-br from-blue-500 to-cyan-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <span class="text-3xl font-bold text-white">2</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Configure Tables</h3>
-                    <p class="text-gray-600">Set up your floor plan and table layout</p>
+                    <h3 data-i18n="howItWorks.step2.title" class="text-xl font-bold text-gray-900 mb-3">Configure Tables</h3>
+                    <p data-i18n="howItWorks.step2.description" class="text-gray-600">Set up your floor plan and table layout</p>
                 </div>
 
                 <div class="text-center">
                     <div class="bg-gradient-to-br from-green-500 to-emerald-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <span class="text-3xl font-bold text-white">3</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Accept Reservations</h3>
-                    <p class="text-gray-600">Start managing bookings instantly</p>
+                    <h3 data-i18n="howItWorks.step3.title" class="text-xl font-bold text-gray-900 mb-3">Accept Reservations</h3>
+                    <p data-i18n="howItWorks.step3.description" class="text-gray-600">Start managing bookings instantly</p>
                 </div>
 
                 <div class="text-center">
                     <div class="bg-gradient-to-br from-orange-500 to-red-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <span class="text-3xl font-bold text-white">4</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Grow Business</h3>
-                    <p class="text-gray-600">Use analytics to boost retention</p>
+                    <h3 data-i18n="howItWorks.step4.title" class="text-xl font-bold text-gray-900 mb-3">Grow Business</h3>
+                    <p data-i18n="howItWorks.step4.description" class="text-gray-600">Use analytics to boost retention</p>
                 </div>
             </div>
         </div>
@@ -471,130 +462,90 @@
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Simple, <span class="text-primary-500">Transparent Pricing</span>
+                    <span data-i18n="pricing.title">Simple,</span> <span data-i18n="pricing.titleHighlight" class="text-primary-500">Transparent Pricing</span>
                 </h2>
-                <p class="text-xl text-gray-600">Choose the plan that fits your restaurant</p>
+                <p data-i18n="pricing.subtitle" class="text-xl text-gray-600">Choose the plan that fits your restaurant</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Starter Plan -->
                 <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+                    <h3 data-i18n="pricing.starter.name" class="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold text-gray-900">$29</span>
-                        <span class="text-gray-600">/month</span>
+                        <span data-i18n="pricing.starter.price" class="text-4xl font-bold text-gray-900">35,000</span>
+                        <span data-i18n="pricing.starter.currency" class="text-xl font-semibold text-gray-700 ml-1">IQD</span>
+                        <span data-i18n="pricing.starter.period" class="text-gray-600">/month</span>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-gray-600">
                             <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Up to 100 reservations/month
+                            <span data-i18n="pricing.starter.features.0">Up to 100 reservations/month</span>
                         </li>
                         <li class="flex items-center text-gray-600">
                             <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            1 restaurant location
+                            <span data-i18n="pricing.starter.features.1">1 restaurant location</span>
                         </li>
                         <li class="flex items-center text-gray-600">
                             <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Basic analytics
+                            <span data-i18n="pricing.starter.features.2">Basic analytics</span>
                         </li>
                         <li class="flex items-center text-gray-600">
                             <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Email support
+                            <span data-i18n="pricing.starter.features.3">Email support</span>
                         </li>
                         <li class="flex items-center text-gray-600">
                             <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Mobile app access
+                            <span data-i18n="pricing.starter.features.4">Mobile app access</span>
                         </li>
                     </ul>
-                    <button class="w-full border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
+                    <button data-i18n="pricing.starter.button" class="w-full border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
                         Get Started
                     </button>
                 </div>
 
                 <!-- Professional Plan (Featured) -->
-                <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl p-8 transform md:scale-105 shadow-2xl relative">
+                <div class="bg-gradient-to-br from-primary-500 to-secondary-500 rounded-2xl p-8 shadow-2xl relative">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
+                        <span data-i18n="pricing.professional.badge" class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                    <h3 data-i18n="pricing.professional.name" class="text-2xl font-bold text-white mb-2">Professional</h3>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold text-white">$79</span>
-                        <span class="text-white/90">/month</span>
+                        <span data-i18n="pricing.professional.price" class="text-4xl font-bold text-white">95,000</span>
+                        <span data-i18n="pricing.professional.currency" class="text-xl font-semibold text-white/90 ml-1">IQD</span>
+                        <span data-i18n="pricing.professional.period" class="text-white/90">/month</span>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Unlimited reservations
+                            <span data-i18n="pricing.professional.features.0">Unlimited reservations</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Up to 3 locations
+                            <span data-i18n="pricing.professional.features.1">Up to 3 locations</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Advanced analytics
+                            <span data-i18n="pricing.professional.features.2">Advanced analytics</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Priority support
+                            <span data-i18n="pricing.professional.features.3">Priority support</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Loyalty programs
+                            <span data-i18n="pricing.professional.features.4">Loyalty programs</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            WhatsApp integration
+                            <span data-i18n="pricing.professional.features.5">WhatsApp integration</span>
                         </li>
                         <li class="flex items-center text-white">
                             <i class="fas fa-check-circle text-yellow-300 mr-3"></i>
-                            Custom branding
+                            <span data-i18n="pricing.professional.features.6">Custom branding</span>
                         </li>
                     </ul>
-                    <button class="w-full bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                    <button data-i18n="pricing.professional.button" class="w-full bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
                         Get Started
-                    </button>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-                    <div class="mb-6">
-                        <span class="text-5xl font-bold text-gray-900">$199</span>
-                        <span class="text-gray-600">/month</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Everything in Professional
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Unlimited locations
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Dedicated account manager
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            24/7 phone support
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            API access
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            Custom integrations
-                        </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            White-label option
-                        </li>
-                    </ul>
-                    <button class="w-full border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-xl font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
-                        Contact Sales
                     </button>
                 </div>
             </div>
@@ -604,13 +555,13 @@
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-br from-primary-500 to-secondary-500 gradient-animate">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 data-i18n="cta.title" class="text-4xl md:text-5xl font-bold text-white mb-6">
                 Ready to Transform Your Restaurant?
             </h2>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p data-i18n="cta.subtitle" class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                 Join hundreds of restaurants already using TableNow
             </p>
-            <button class="bg-white text-primary-600 px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            <button data-i18n="cta.button" class="bg-white text-primary-600 px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 Start Your Free Trial
             </button>
         </div>
@@ -620,40 +571,40 @@
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600">Have questions? We'd love to hear from you</p>
+                <h2 data-i18n="contact.title" class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p data-i18n="contact.subtitle" class="text-xl text-gray-600">Have questions? We'd love to hear from you</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <!-- Contact Info -->
                 <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-start gap-4">
                         <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-envelope text-white text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-gray-900 mb-1">Email</h4>
-                            <p class="text-gray-600">support@tablenow.com</p>
+                            <h4 data-i18n="contact.email" class="text-lg font-bold text-gray-900 mb-1">Email</h4>
+                            <p class="text-gray-600">info@table-now.co</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-start gap-4">
                         <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-phone text-white text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-gray-900 mb-1">Phone</h4>
-                            <p class="text-gray-600">+1 (555) 123-4567</p>
+                            <h4 data-i18n="contact.phone" class="text-lg font-bold text-gray-900 mb-1">Phone</h4>
+                            <p class="text-gray-600">+964 770 298 2325</p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-start gap-4">
                         <div class="bg-primary-500 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-map-marker-alt text-white text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-gray-900 mb-1">Address</h4>
-                            <p class="text-gray-600">123 Restaurant St, Food City, FC 12345</p>
+                            <h4 data-i18n="contact.address" class="text-lg font-bold text-gray-900 mb-1">Address</h4>
+                            <p class="text-gray-600">Iraq, Baghdad</p>
                         </div>
                     </div>
                 </div>
@@ -662,22 +613,22 @@
                 <form class="bg-white rounded-2xl p-8 shadow-lg">
                     <div class="space-y-6">
                         <div>
-                            <input type="text" placeholder="Your Name" required
+                            <input type="text" data-i18n-placeholder="contact.form.name" placeholder="Your Name" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
                         </div>
                         <div>
-                            <input type="email" placeholder="Your Email" required
+                            <input type="email" data-i18n-placeholder="contact.form.email" placeholder="Your Email" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
                         </div>
                         <div>
-                            <input type="text" placeholder="Subject" required
+                            <input type="text" data-i18n-placeholder="contact.form.subject" placeholder="Subject" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
                         </div>
                         <div>
-                            <textarea placeholder="Your Message" rows="5" required
+                            <textarea data-i18n-placeholder="contact.form.message" placeholder="Your Message" rows="5" required
                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors resize-none"></textarea>
                         </div>
-                        <button type="submit"
+                        <button type="submit" data-i18n="contact.form.button"
                                 class="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
                             Send Message
                         </button>
@@ -693,65 +644,48 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <!-- Brand -->
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="bg-gradient-to-br from-primary-500 to-secondary-500 p-2 rounded-xl">
-                            <i class="fas fa-utensils text-white text-xl"></i>
-                        </div>
-                        <span class="text-xl font-bold">TableNow</span>
+                    <div class="mb-4">
+                        <img src="images/logo_tablenow.png" alt="TableNow" class="h-8 rounded-lg">
                     </div>
-                    <p class="text-gray-400 mb-4">Modern restaurant management made simple.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-500 transition-colors">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                    <p data-i18n="footer.tagline" class="text-gray-400">Modern restaurant management made simple.</p>
                 </div>
 
                 <!-- Product -->
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Product</h4>
+                    <h4 data-i18n="footer.product.title" class="font-bold text-lg mb-4">Product</h4>
                     <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Demo</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
+                        <li><a href="#features" data-i18n="footer.product.features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#pricing" data-i18n="footer.product.pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" data-i18n="footer.product.demo" class="text-gray-400 hover:text-white transition-colors">Demo</a></li>
+                        <li><a href="#" data-i18n="footer.product.api" class="text-gray-400 hover:text-white transition-colors">API</a></li>
                     </ul>
                 </div>
 
                 <!-- Company -->
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <h4 data-i18n="footer.company.title" class="font-bold text-lg mb-4">Company</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" data-i18n="footer.company.about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" data-i18n="footer.company.careers" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" data-i18n="footer.company.blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#contact" data-i18n="footer.company.contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Support -->
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <h4 data-i18n="footer.support.title" class="font-bold text-lg mb-4">Support</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="footer.support.help" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" data-i18n="footer.support.docs" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" data-i18n="footer.support.privacy" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer.support.terms" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 TableNow. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2024 TableNow. All rights reserved.</p>
             </div>
         </div>
     </footer>

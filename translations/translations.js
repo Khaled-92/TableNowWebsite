@@ -13,13 +13,12 @@ const translations = {
             badge: "🎉 #1 Restaurant Management Platform",
             title: "Restaurant Management",
             titleHighlight: "Made Simple",
-            description: "Streamline reservations, manage tables, track customers, and build loyalty programs - all in one powerful platform.",
+            description: "Smart reservations, powerful loyalty programs, WhatsApp messaging, and complete CRM - everything you need to grow your restaurant.",
             startTrial: "Start Free Trial",
             learnMore: "Learn More",
-            stats: {
-                restaurants: "Restaurants",
-                reservations: "Reservations/Month",
-                uptime: "Uptime"
+            trust: {
+                noCard: "No credit card required",
+                freeTrial: "14-day free trial"
             }
         },
         // Features Section
@@ -96,7 +95,8 @@ const translations = {
             subtitle: "Choose the plan that fits your restaurant",
             starter: {
                 name: "Starter",
-                price: "$29",
+                price: "35,000",
+                currency: "IQD",
                 period: "/month",
                 features: [
                     "Up to 100 reservations/month",
@@ -110,7 +110,8 @@ const translations = {
             professional: {
                 badge: "MOST POPULAR",
                 name: "Professional",
-                price: "$79",
+                price: "95,000",
+                currency: "IQD",
                 period: "/month",
                 features: [
                     "Unlimited reservations",
@@ -122,21 +123,6 @@ const translations = {
                     "Custom branding"
                 ],
                 button: "Get Started"
-            },
-            enterprise: {
-                name: "Enterprise",
-                price: "$199",
-                period: "/month",
-                features: [
-                    "Everything in Professional",
-                    "Unlimited locations",
-                    "Dedicated account manager",
-                    "24/7 phone support",
-                    "API access",
-                    "Custom integrations",
-                    "White-label option"
-                ],
-                button: "Contact Sales"
             }
         },
         // CTA
@@ -201,13 +187,12 @@ const translations = {
             badge: "🎉 منصة إدارة المطاعم رقم 1",
             title: "إدارة المطاعم",
             titleHighlight: "بكل سهولة",
-            description: "نظّم الحجوزات، أدر الطاولات، تابع العملاء، وابنِ برامج الولاء - كل ذلك في منصة واحدة قوية.",
+            description: "حجوزات ذكية، برامج ولاء قوية، رسائل واتساب، وإدارة علاقات العملاء الشاملة - كل ما تحتاجه لتنمية مطعمك.",
             startTrial: "ابدأ تجربة مجانية",
             learnMore: "اعرف المزيد",
-            stats: {
-                restaurants: "مطعم",
-                reservations: "حجز/شهر",
-                uptime: "وقت التشغيل"
+            trust: {
+                noCard: "لا حاجة لبطاقة ائتمان",
+                freeTrial: "تجربة مجانية 14 يوم"
             }
         },
         // Features Section
@@ -284,7 +269,8 @@ const translations = {
             subtitle: "اختر الخطة المناسبة لمطعمك",
             starter: {
                 name: "المبتدئ",
-                price: "$29",
+                price: "35,000",
+                currency: "د.ع",
                 period: "/شهر",
                 features: [
                     "حتى 100 حجز/شهر",
@@ -298,7 +284,8 @@ const translations = {
             professional: {
                 badge: "الأكثر شعبية",
                 name: "المحترف",
-                price: "$79",
+                price: "95,000",
+                currency: "د.ع",
                 period: "/شهر",
                 features: [
                     "حجوزات غير محدودة",
@@ -310,21 +297,6 @@ const translations = {
                     "علامة تجارية مخصصة"
                 ],
                 button: "ابدأ الآن"
-            },
-            enterprise: {
-                name: "المؤسسات",
-                price: "$199",
-                period: "/شهر",
-                features: [
-                    "كل ما في المحترف",
-                    "مواقع غير محدودة",
-                    "مدير حساب مخصص",
-                    "دعم هاتفي 24/7",
-                    "الوصول إلى API",
-                    "تكاملات مخصصة",
-                    "خيار العلامة البيضاء"
-                ],
-                button: "اتصل بالمبيعات"
             }
         },
         // CTA
@@ -389,13 +361,12 @@ const translations = {
             badge: "🎉 سیستەمی بەڕێوەبردنی چێشتخانە ژمارە 1",
             title: "بەڕێوەبردنی چێشتخانە",
             titleHighlight: "ئاسان کراوە",
-            description: "ڕێکخستنی حجزەکان، بەڕێوەبردنی مێزەکان، شوێنکەوتنی کڕیارەکان، و دروستکردنی بەرنامەی دڵسۆزی - هەموویان لە یەک پلاتفۆرمی بەهێزدا.",
+            description: "حجزی زیرەک، بەرنامەی دڵسۆزی بەهێز، نامەکانی واتساپ، و بەڕێوەبردنی تەواوی پەیوەندی کڕیاران - هەموو ئەوەی پێویستە بۆ گەشەکردنی چێشتخانەکەت.",
             startTrial: "تاقیکردنەوەی بێبەرامبەر دەست پێبکە",
             learnMore: "زیاتر بزانە",
-            stats: {
-                restaurants: "چێشتخانە",
-                reservations: "حجز/مانگ",
-                uptime: "کاتی کارکردن"
+            trust: {
+                noCard: "پێویستی بە کارتی بانکی نییە",
+                freeTrial: "تاقیکردنەوەی بێبەرامبەر ١٤ ڕۆژ"
             }
         },
         // Features Section
@@ -472,7 +443,8 @@ const translations = {
             subtitle: "پلانەکە هەڵبژێرە کە گونجاوە بۆ چێشتخانەکەت",
             starter: {
                 name: "دەستپێکەر",
-                price: "$29",
+                price: "35,000",
+                currency: "د.ع",
                 period: "/مانگ",
                 features: [
                     "تا 100 حجز/مانگ",
@@ -486,7 +458,8 @@ const translations = {
             professional: {
                 badge: "زۆرترین بەناوبانگ",
                 name: "پیشەیی",
-                price: "$79",
+                price: "95,000",
+                currency: "د.ع",
                 period: "/مانگ",
                 features: [
                     "حجزی بێسنوور",
@@ -498,21 +471,6 @@ const translations = {
                     "براندی تایبەت"
                 ],
                 button: "دەست پێبکە"
-            },
-            enterprise: {
-                name: "دامەزراوە",
-                price: "$199",
-                period: "/مانگ",
-                features: [
-                    "هەموو ئەوەی لە پیشەیی",
-                    "شوێنی بێسنوور",
-                    "بەڕێوەبەری هەژماری تایبەت",
-                    "پشتگیری تەلەفۆنی 24/7",
-                    "دەستڕاگەیشتن بە API",
-                    "یەکخستنی تایبەت",
-                    "هەڵبژاردنی وایت-لەیبڵ"
-                ],
-                button: "پەیوەندی بە فرۆشتن بکە"
             }
         },
         // CTA
