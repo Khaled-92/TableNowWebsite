@@ -170,7 +170,9 @@ const translations = {
                 privacy: "Privacy Policy",
                 terms: "Terms of Service"
             },
-            copyright: "© 2024 TableNow. All rights reserved."
+            copyright: "© 2024 TableNow. All rights reserved.",
+            rights: "All rights reserved.",
+            ownedBy: "A product of"
         }
     },
     ar: {
@@ -344,7 +346,9 @@ const translations = {
                 privacy: "سياسة الخصوصية",
                 terms: "شروط الخدمة"
             },
-            copyright: "© 2024 TableNow. جميع الحقوق محفوظة."
+            copyright: "© 2024 TableNow. جميع الحقوق محفوظة.",
+            rights: "جميع الحقوق محفوظة.",
+            ownedBy: "منتج من"
         }
     },
     ku: {
@@ -518,7 +522,9 @@ const translations = {
                 privacy: "سیاسەتی تایبەتمەندی",
                 terms: "مەرجەکانی خزمەتگوزاری"
             },
-            copyright: "© 2024 TableNow. هەموو مافەکان پارێزراون."
+            copyright: "© 2024 TableNow. هەموو مافەکان پارێزراون.",
+            rights: "هەموو مافەکان پارێزراون.",
+            ownedBy: "بەرهەمێکی"
         }
     }
 };

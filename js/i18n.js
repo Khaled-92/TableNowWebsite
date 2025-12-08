@@ -78,4 +78,10 @@ function getNestedTranslation(obj, path) {
 document.addEventListener('DOMContentLoaded', () => {
     updateContent();
     updateDirectionStyles();
+
+    // Set dynamic copyright year
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 });

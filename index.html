@@ -3,8 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TableNow - Modern Restaurant Management System for Reservations, Tables, and Customer Loyalty">
-    <title>TableNow - Restaurant Management Made Simple</title>
+
+    <!-- Primary Meta Tags -->
+    <title>TableNow - #1 Restaurant Management System in Iraq | Reservations, Tables & CRM</title>
+    <meta name="title" content="TableNow - #1 Restaurant Management System in Iraq | Reservations, Tables & CRM">
+    <meta name="description" content="TableNow is Iraq's leading restaurant management platform. Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Start your free 14-day trial today!">
+    <meta name="keywords" content="restaurant management system, restaurant reservation software, table management, restaurant CRM, loyalty program, WhatsApp restaurant, Iraq restaurant software, Baghdad restaurant system, restaurant booking system, hospitality software, restaurant analytics, multi-location restaurant management">
+    <meta name="author" content="Orphena Technologies">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="General">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://table-now.co/">
+
+    <!-- Hreflang for multilingual -->
+    <link rel="alternate" hreflang="en" href="https://table-now.co/">
+    <link rel="alternate" hreflang="ar" href="https://table-now.co/?lang=ar">
+    <link rel="alternate" hreflang="ku" href="https://table-now.co/?lang=ku">
+    <link rel="alternate" hreflang="x-default" href="https://table-now.co/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://table-now.co/">
+    <meta property="og:title" content="TableNow - #1 Restaurant Management System in Iraq">
+    <meta property="og:description" content="Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Everything you need to grow your restaurant business.">
+    <meta property="og:image" content="https://table-now.co/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="TableNow Restaurant Management System">
+    <meta property="og:site_name" content="TableNow">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_IQ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://table-now.co/">
+    <meta name="twitter:title" content="TableNow - #1 Restaurant Management System in Iraq">
+    <meta name="twitter:description" content="Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Start your free trial today!">
+    <meta name="twitter:image" content="https://table-now.co/images/og-image.png">
+    <meta name="twitter:creator" content="@tablenow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo_tablenow.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo_tablenow.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo_tablenow.png">
+    <link rel="shortcut icon" href="images/logo_tablenow.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#021837">
+    <meta name="msapplication-TileColor" content="#021837">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -685,10 +744,193 @@
             </div>
 
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p data-i18n="footer.copyright">&copy; 2024 TableNow. All rights reserved.</p>
+                <p>&copy; <span id="currentYear"></span> TableNow. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <p class="mt-2 text-sm"><span data-i18n="footer.ownedBy">A product of</span> <a href="https://orphena.com" target="_blank" class="text-primary-400 hover:text-primary-300 transition-colors underline hover:no-underline">Orphena Technologies</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://orphena.com/#organization",
+                "name": "Orphena Technologies",
+                "url": "https://orphena.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://orphena.com/images/logo.png"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://table-now.co/#software",
+                "name": "TableNow",
+                "description": "TableNow is Iraq's leading restaurant management platform featuring smart reservations, table management, customer CRM, loyalty programs and WhatsApp integration.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web Browser",
+                "url": "https://table-now.co",
+                "image": "https://table-now.co/images/og-image.png",
+                "screenshot": "https://table-now.co/images/ipad-app-view.png",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": "USD",
+                    "lowPrice": "0",
+                    "highPrice": "199",
+                    "offerCount": "4",
+                    "offers": [
+                        {
+                            "@type": "Offer",
+                            "name": "Free Plan",
+                            "price": "0",
+                            "priceCurrency": "USD",
+                            "description": "Perfect for small restaurants"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Starter Plan",
+                            "price": "49",
+                            "priceCurrency": "USD",
+                            "description": "Growing restaurants"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Professional Plan",
+                            "price": "99",
+                            "priceCurrency": "USD",
+                            "description": "Multi-location restaurants"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Enterprise Plan",
+                            "price": "199",
+                            "priceCurrency": "USD",
+                            "description": "Large restaurant chains"
+                        }
+                    ]
+                },
+                "featureList": [
+                    "Smart Reservations",
+                    "Table Management",
+                    "Customer CRM",
+                    "Loyalty Programs",
+                    "WhatsApp Integration",
+                    "Multi-location Support",
+                    "Analytics Dashboard",
+                    "Real-time Availability"
+                ],
+                "creator": {
+                    "@id": "https://orphena.com/#organization"
+                },
+                "provider": {
+                    "@id": "https://orphena.com/#organization"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://table-now.co/#website",
+                "url": "https://table-now.co",
+                "name": "TableNow - Restaurant Management System",
+                "description": "Smart restaurant management platform for reservations, tables, CRM and loyalty programs",
+                "publisher": {
+                    "@id": "https://orphena.com/#organization"
+                },
+                "inLanguage": ["en", "ar", "ku"],
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://table-now.co/?search={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://table-now.co/#webpage",
+                "url": "https://table-now.co",
+                "name": "TableNow - #1 Restaurant Management System in Iraq",
+                "description": "TableNow is Iraq's leading restaurant management platform. Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration.",
+                "isPartOf": {
+                    "@id": "https://table-now.co/#website"
+                },
+                "about": {
+                    "@id": "https://table-now.co/#software"
+                },
+                "inLanguage": "en"
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is TableNow?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "TableNow is a comprehensive restaurant management platform that helps restaurants manage reservations, tables, customer relationships, and loyalty programs with integrated WhatsApp communication."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does TableNow offer a free trial?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, TableNow offers a 14-day free trial with full access to all features. No credit card required to get started."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is TableNow available in Arabic and Kurdish?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, TableNow fully supports English, Arabic, and Kurdish languages with complete RTL (right-to-left) support for Arabic and Kurdish interfaces."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can TableNow manage multiple restaurant locations?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, TableNow's Professional and Enterprise plans support multi-location management with centralized analytics and reporting across all your restaurant branches."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://table-now.co/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Features",
+                        "item": "https://table-now.co/#features"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Pricing",
+                        "item": "https://table-now.co/#pricing"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": "Contact",
+                        "item": "https://table-now.co/#contact"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 
     <!-- Translation Files -->
     <script src="translations/translations.js"></script>
