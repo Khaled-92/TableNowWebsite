@@ -158,6 +158,89 @@
         [dir="rtl"] .text-right {
             text-align: left;
         }
+
+        /* WhatsApp Chat Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        [dir="rtl"] .whatsapp-widget {
+            right: auto;
+            left: 24px;
+        }
+        .whatsapp-widget a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-widget a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-widget a i {
+            color: white;
+            font-size: 32px;
+        }
+        .whatsapp-widget .tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        [dir="rtl"] .whatsapp-widget .tooltip {
+            right: auto;
+            left: 70px;
+        }
+        .whatsapp-widget .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent white;
+        }
+        [dir="rtl"] .whatsapp-widget .tooltip::after {
+            right: auto;
+            left: -6px;
+            border-color: transparent white transparent transparent;
+        }
+        .whatsapp-widget:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-widget a {
+            animation: whatsapp-pulse 2s infinite;
+        }
+        .whatsapp-widget a:hover {
+            animation: none;
+        }
     </style>
 </head>
 <body class="antialiased" style="font-family: 'Cairo', sans-serif;">
@@ -696,6 +779,14 @@
             </div>
         </div>
     </section>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-widget">
+        <span class="tooltip" data-i18n="whatsapp.tooltip">Chat with us</span>
+        <a href="https://wa.me/9647702982325?text=Hello%20TableNow%21%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">

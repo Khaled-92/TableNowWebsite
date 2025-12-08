@@ -182,6 +182,10 @@ const translations = {
             copyright: "© 2024 TableNow. All rights reserved.",
             rights: "All rights reserved.",
             ownedBy: "A product of"
+        },
+        // WhatsApp Widget
+        whatsapp: {
+            tooltip: "Chat with us"
         }
     },
     ar: {
@@ -367,6 +371,10 @@ const translations = {
             copyright: "© 2024 TableNow. جميع الحقوق محفوظة.",
             rights: "جميع الحقوق محفوظة.",
             ownedBy: "منتج من"
+        },
+        // WhatsApp Widget
+        whatsapp: {
+            tooltip: "تحدث معنا"
         }
     },
     ku: {
@@ -552,6 +560,10 @@ const translations = {
             copyright: "© 2024 TableNow. هەموو مافەکان پارێزراون.",
             rights: "هەموو مافەکان پارێزراون.",
             ownedBy: "بەرهەمێکی"
+        },
+        // WhatsApp Widget
+        whatsapp: {
+            tooltip: "قسەمان لەگەڵ بکە"
         }
     }
 };
