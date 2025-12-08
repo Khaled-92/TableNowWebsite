@@ -1,0 +1,27 @@
+{
+  "name": "tablenowwebsite",
+  "version": "1.0.0",
+  "description": "A modern, responsive marketing website for TableNow - Restaurant Management System.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/input.css -o ./css/style.css --minify",
+    "watch:css": "tailwindcss -i ./css/input.css -o ./css/style.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khaled-92/TableNowWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Khaled-92/TableNowWebsite/issues"
+  },
+  "homepage": "https://github.com/Khaled-92/TableNowWebsite#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}

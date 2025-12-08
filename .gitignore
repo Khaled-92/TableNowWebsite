@@ -11,3 +11,7 @@ Thumbs.db
 
 # Backup files
 *.backup.html
+
+# Node.js
+node_modules/
+package-lock.json
