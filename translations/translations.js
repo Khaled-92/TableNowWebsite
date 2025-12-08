@@ -272,14 +272,6 @@ const translations = {
             placeholder: "Enter your email",
             button: "Subscribe",
             privacy: "We respect your privacy. Unsubscribe at any time."
-        },
-        // Exit Intent
-        exitIntent: {
-            title: "Wait! Don't Leave Yet",
-            message: "Get an exclusive 20% discount on your first month when you sign up today!",
-            placeholder: "Enter your email",
-            button: "Claim My Discount",
-            noThanks: "No thanks, I'll pay full price"
         }
     },
     ar: {
@@ -555,14 +547,6 @@ const translations = {
             placeholder: "أدخل بريدك الإلكتروني",
             button: "اشترك",
             privacy: "نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت."
-        },
-        // Exit Intent
-        exitIntent: {
-            title: "انتظر! لا تغادر بعد",
-            message: "احصل على خصم حصري 20% على شهرك الأول عند التسجيل اليوم!",
-            placeholder: "أدخل بريدك الإلكتروني",
-            button: "احصل على خصمي",
-            noThanks: "لا شكراً، سأدفع السعر الكامل"
         }
     },
     ku: {
@@ -838,14 +822,6 @@ const translations = {
             placeholder: "ئیمەیڵەکەت بنووسە",
             button: "بەشداربوون",
             privacy: "ڕێزی تایبەتمەندیت دەگرین. لە هەر کاتێکدا دەتوانیت لەبەشداریبوون لاببیت."
-        },
-        // Exit Intent
-        exitIntent: {
-            title: "چاوەڕێ بکە! هێشتا مەڕۆ",
-            message: "داشکاندنی تایبەتی 20% وەربگرە لە یەکەم مانگت کاتێک ئەمڕۆ تۆمار دەکەیت!",
-            placeholder: "ئیمەیڵەکەت بنووسە",
-            button: "داشکاندنەکەم وەربگرە",
-            noThanks: "نەخێر سوپاس، نرخی تەواو دەدەم"
         }
     }
 };

@@ -70,7 +70,7 @@
     <link rel="preload" as="image" href="images/logo_tablenow.png" type="image/png">
 
     <!-- Tailwind CSS (Production Build) -->
-    <link rel="stylesheet" href="css/style.css?v=3.0">
+    <link rel="stylesheet" href="css/style.css?v=3.1">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -970,32 +970,6 @@
                 Our mobile app is currently under development. We're working hard to bring you the best restaurant management experience on your phone. Stay tuned!
             </p>
             <button class="coming-soon-close" onclick="hideComingSoon()" data-i18n="comingSoon.close">Got it!</button>
-        </div>
-    </div>
-
-    <!-- Exit Intent Popup -->
-    <div id="exitIntentPopup" class="exit-intent-popup" onclick="hideExitIntent(event)">
-        <div class="exit-intent-content" onclick="event.stopPropagation()">
-            <button class="exit-intent-close" onclick="hideExitIntent()" aria-label="Close">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="exit-intent-icon">
-                <i class="fas fa-gift"></i>
-            </div>
-            <h3 data-i18n="exitIntent.title" class="exit-intent-title">Wait! Don't Leave Yet</h3>
-            <p data-i18n="exitIntent.message" class="exit-intent-text">
-                Get an exclusive 20% discount on your first month when you sign up today!
-            </p>
-            <form id="exitIntentForm" class="exit-intent-form">
-                <input type="email" id="exitIntentEmail" data-i18n-placeholder="exitIntent.placeholder" placeholder="Enter your email" required
-                       class="exit-intent-input">
-                <button type="submit" data-i18n="exitIntent.button" class="exit-intent-button">
-                    Claim My Discount
-                </button>
-            </form>
-            <p data-i18n="exitIntent.noThanks" class="exit-intent-skip" onclick="hideExitIntent()">
-                No thanks, I'll pay full price
-            </p>
         </div>
     </div>
 
