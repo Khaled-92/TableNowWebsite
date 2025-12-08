@@ -17,6 +17,114 @@ function changeLanguage(lang) {
 
     updateContent();
     updateDirectionStyles();
+    updateMetaTags();
+    updateJsonLd();
+}
+
+// Update meta tags for SEO
+function updateMetaTags() {
+    const t = translations[currentLang];
+    if (!t || !t.seo) return;
+
+    const seo = t.seo;
+
+    // Update title
+    document.title = seo.title;
+
+    // Update meta tags
+    const metaUpdates = {
+        'title': seo.title,
+        'description': seo.description,
+        'keywords': seo.keywords
+    };
+
+    // Update standard meta tags
+    Object.entries(metaUpdates).forEach(([name, content]) => {
+        let meta = document.querySelector(`meta[name="${name}"]`);
+        if (meta) {
+            meta.setAttribute('content', content);
+        }
+    });
+
+    // Update Open Graph tags
+    const ogUpdates = {
+        'og:title': seo.ogTitle,
+        'og:description': seo.ogDescription,
+        'og:locale': currentLang === 'ar' ? 'ar_IQ' : currentLang === 'ku' ? 'ku_IQ' : 'en_US'
+    };
+
+    Object.entries(ogUpdates).forEach(([property, content]) => {
+        let meta = document.querySelector(`meta[property="${property}"]`);
+        if (meta) {
+            meta.setAttribute('content', content);
+        }
+    });
+
+    // Update Twitter tags
+    const twitterUpdates = {
+        'twitter:title': seo.ogTitle,
+        'twitter:description': seo.twitterDescription
+    };
+
+    Object.entries(twitterUpdates).forEach(([name, content]) => {
+        let meta = document.querySelector(`meta[name="${name}"]`);
+        if (meta) {
+            meta.setAttribute('content', content);
+        }
+    });
+
+    // Update canonical URL with language parameter
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+        const baseUrl = 'https://table-now.co/';
+        canonical.setAttribute('href', currentLang === 'en' ? baseUrl : `${baseUrl}?lang=${currentLang}`);
+    }
+
+    // Update language meta tag
+    const langMeta = document.querySelector('meta[name="language"]');
+    if (langMeta) {
+        const langNames = { en: 'English', ar: 'Arabic', ku: 'Kurdish' };
+        langMeta.setAttribute('content', langNames[currentLang] || 'English');
+    }
+}
+
+// Update JSON-LD structured data
+function updateJsonLd() {
+    const t = translations[currentLang];
+    if (!t || !t.seo) return;
+
+    const seo = t.seo;
+    const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+
+    if (jsonLdScript) {
+        try {
+            const jsonLd = JSON.parse(jsonLdScript.textContent);
+
+            // Update SoftwareApplication description
+            const software = jsonLd['@graph'].find(item => item['@type'] === 'SoftwareApplication');
+            if (software) {
+                software.description = seo.description;
+            }
+
+            // Update WebSite description
+            const website = jsonLd['@graph'].find(item => item['@type'] === 'WebSite');
+            if (website) {
+                website.description = seo.ogDescription;
+            }
+
+            // Update WebPage
+            const webpage = jsonLd['@graph'].find(item => item['@type'] === 'WebPage');
+            if (webpage) {
+                webpage.name = seo.title;
+                webpage.description = seo.description;
+                webpage.inLanguage = currentLang;
+            }
+
+            jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+        } catch (e) {
+            console.error('Error updating JSON-LD:', e);
+        }
+    }
 }
 
 // Update direction styles
@@ -78,6 +186,8 @@ function getNestedTranslation(obj, path) {
 document.addEventListener('DOMContentLoaded', () => {
     updateContent();
     updateDirectionStyles();
+    updateMetaTags();
+    updateJsonLd();
 
     // Set dynamic copyright year
     const yearElement = document.getElementById('currentYear');

@@ -1,5 +1,14 @@
 const translations = {
     en: {
+        // SEO Meta Tags
+        seo: {
+            title: "TableNow - #1 Restaurant Management System in Iraq | Reservations, Tables & CRM",
+            description: "TableNow is Iraq's leading restaurant management platform. Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Start your free 14-day trial today!",
+            keywords: "restaurant management system, restaurant reservation software, table management, restaurant CRM, loyalty program, WhatsApp restaurant, Iraq restaurant software, Baghdad restaurant system, restaurant booking system, hospitality software, restaurant analytics, multi-location restaurant management",
+            ogTitle: "TableNow - #1 Restaurant Management System in Iraq",
+            ogDescription: "Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Everything you need to grow your restaurant business.",
+            twitterDescription: "Smart reservations, table management, customer CRM, loyalty programs & WhatsApp integration. Start your free trial today!"
+        },
         // Navbar
         nav: {
             home: "Home",
@@ -176,6 +185,15 @@ const translations = {
         }
     },
     ar: {
+        // SEO Meta Tags
+        seo: {
+            title: "TableNow - نظام إدارة المطاعم رقم 1 في العراق | حجوزات، طاولات و إدارة العملاء",
+            description: "TableNow هي المنصة الرائدة لإدارة المطاعم في العراق. حجوزات ذكية، إدارة الطاولات، إدارة علاقات العملاء، برامج الولاء وتكامل واتساب. ابدأ تجربتك المجانية لمدة 14 يوم اليوم!",
+            keywords: "نظام إدارة المطاعم, برنامج حجز المطاعم, إدارة الطاولات, إدارة علاقات العملاء للمطاعم, برنامج الولاء, واتساب للمطاعم, برنامج مطاعم العراق, نظام مطاعم بغداد, نظام حجز المطاعم, برنامج الضيافة, تحليلات المطاعم, إدارة مطاعم متعددة الفروع",
+            ogTitle: "TableNow - نظام إدارة المطاعم رقم 1 في العراق",
+            ogDescription: "حجوزات ذكية، إدارة الطاولات، إدارة علاقات العملاء، برامج الولاء وتكامل واتساب. كل ما تحتاجه لتنمية مطعمك.",
+            twitterDescription: "حجوزات ذكية، إدارة الطاولات، إدارة علاقات العملاء، برامج الولاء وتكامل واتساب. ابدأ تجربتك المجانية اليوم!"
+        },
         // Navbar
         nav: {
             home: "الرئيسية",
@@ -352,6 +370,15 @@ const translations = {
         }
     },
     ku: {
+        // SEO Meta Tags
+        seo: {
+            title: "TableNow - سیستەمی بەڕێوەبردنی چێشتخانە ژمارە 1 لە عێراق | حجز، مێز و بەڕێوەبردنی کڕیار",
+            description: "TableNow پلاتفۆرمی سەرەکی بەڕێوەبردنی چێشتخانەیە لە عێراق. حجزی زیرەک، بەڕێوەبردنی مێز، بەڕێوەبردنی پەیوەندی کڕیار، بەرنامەی دڵسۆزی و یەکخستنی واتساپ. ئەمڕۆ تاقیکردنەوەی بێبەرامبەری 14 ڕۆژ دەست پێبکە!",
+            keywords: "سیستەمی بەڕێوەبردنی چێشتخانە, نەرمەکاڵای حجزی چێشتخانە, بەڕێوەبردنی مێز, بەڕێوەبردنی پەیوەندی کڕیار, بەرنامەی دڵسۆزی, واتساپی چێشتخانە, نەرمەکاڵای چێشتخانەی عێراق, سیستەمی چێشتخانەی بەغدا, سیستەمی حجزی چێشتخانە, نەرمەکاڵای میوانداری, شیکاری چێشتخانە, بەڕێوەبردنی چێشتخانەی فرە شوێن",
+            ogTitle: "TableNow - سیستەمی بەڕێوەبردنی چێشتخانە ژمارە 1 لە عێراق",
+            ogDescription: "حجزی زیرەک، بەڕێوەبردنی مێز، بەڕێوەبردنی پەیوەندی کڕیار، بەرنامەی دڵسۆزی و یەکخستنی واتساپ. هەموو ئەوەی پێویستە بۆ گەشەکردنی چێشتخانەکەت.",
+            twitterDescription: "حجزی زیرەک، بەڕێوەبردنی مێز، بەڕێوەبردنی پەیوەندی کڕیار، بەرنامەی دڵسۆزی و یەکخستنی واتساپ. ئەمڕۆ تاقیکردنەوەی بێبەرامبەر دەست پێبکە!"
+        },
         // Navbar
         nav: {
             home: "سەرەکی",
