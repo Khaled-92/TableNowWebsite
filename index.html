@@ -443,6 +443,100 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* App Store Buttons */
+        .app-store-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .app-store-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+        [dir="rtl"] .app-store-btn .text-left {
+            text-align: right;
+        }
+
+        /* Coming Soon Modal */
+        .coming-soon-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .coming-soon-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .coming-soon-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .coming-soon-modal.visible .coming-soon-content {
+            transform: scale(1);
+        }
+        .coming-soon-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #021837 0%, #0a2f5f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .coming-soon-icon i {
+            color: white;
+            font-size: 36px;
+        }
+        .coming-soon-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        .coming-soon-text {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .coming-soon-close {
+            background: linear-gradient(135deg, #021837 0%, #0a2f5f 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .coming-soon-close:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(2, 24, 55, 0.3);
+        }
     </style>
 </head>
 <body class="antialiased" style="font-family: 'Cairo', sans-serif;">
@@ -551,6 +645,24 @@
                             <i class="fas fa-check-circle text-green-500"></i>
                             <span data-i18n="hero.trust.freeTrial">14-day free trial</span>
                         </div>
+                    </div>
+
+                    <!-- App Store Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-6">
+                        <button onclick="showComingSoon()" class="app-store-btn">
+                            <i class="fab fa-apple text-2xl"></i>
+                            <div class="text-left">
+                                <span class="text-xs" data-i18n="hero.appStore.downloadOn">Download on the</span>
+                                <span class="block text-sm font-semibold">App Store</span>
+                            </div>
+                        </button>
+                        <button onclick="showComingSoon()" class="app-store-btn">
+                            <i class="fab fa-google-play text-xl"></i>
+                            <div class="text-left">
+                                <span class="text-xs" data-i18n="hero.appStore.getItOn">GET IT ON</span>
+                                <span class="block text-sm font-semibold">Google Play</span>
+                            </div>
+                        </button>
                     </div>
 
                 </div>
@@ -1027,6 +1139,20 @@
                 <button id="acceptCookies" class="cookie-btn cookie-btn-accept" data-i18n="cookie.accept">Accept</button>
                 <button id="declineCookies" class="cookie-btn cookie-btn-decline" data-i18n="cookie.decline">Decline</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="coming-soon-modal" onclick="hideComingSoon(event)">
+        <div class="coming-soon-content" onclick="event.stopPropagation()">
+            <div class="coming-soon-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="coming-soon-title" data-i18n="comingSoon.title">Coming Soon!</h3>
+            <p class="coming-soon-text" data-i18n="comingSoon.message">
+                Our mobile app is currently under development. We're working hard to bring you the best restaurant management experience on your phone. Stay tuned!
+            </p>
+            <button class="coming-soon-close" onclick="hideComingSoon()" data-i18n="comingSoon.close">Got it!</button>
         </div>
     </div>
 

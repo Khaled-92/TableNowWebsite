@@ -28,7 +28,17 @@ const translations = {
             trust: {
                 noCard: "No credit card required",
                 freeTrial: "14-day free trial"
+            },
+            appStore: {
+                downloadOn: "Download on the",
+                getItOn: "GET IT ON"
             }
+        },
+        // Coming Soon
+        comingSoon: {
+            title: "Coming Soon!",
+            message: "Our mobile app is currently under development. We're working hard to bring you the best restaurant management experience on your phone. Stay tuned!",
+            close: "Got it!"
         },
         // Features Section
         features: {
@@ -230,7 +240,17 @@ const translations = {
             trust: {
                 noCard: "لا حاجة لبطاقة ائتمان",
                 freeTrial: "تجربة مجانية 14 يوم"
+            },
+            appStore: {
+                downloadOn: "حمّل من",
+                getItOn: "احصل عليه من"
             }
+        },
+        // Coming Soon
+        comingSoon: {
+            title: "قريباً!",
+            message: "تطبيقنا للجوال قيد التطوير حالياً. نعمل بجد لنقدم لك أفضل تجربة إدارة مطاعم على هاتفك. ترقبوا!",
+            close: "حسناً!"
         },
         // Features Section
         features: {
@@ -432,7 +452,17 @@ const translations = {
             trust: {
                 noCard: "پێویستی بە کارتی بانکی نییە",
                 freeTrial: "تاقیکردنەوەی بێبەرامبەر ١٤ ڕۆژ"
+            },
+            appStore: {
+                downloadOn: "داگرتن لە",
+                getItOn: "بەدەستی بهێنە لە"
             }
+        },
+        // Coming Soon
+        comingSoon: {
+            title: "بەم زووانە!",
+            message: "بەرنامەی مۆبایلەکەمان ئێستا لە ژێر پەرەپێدانە. بە توندی کار دەکەین بۆ پێشکەشکردنی باشترین ئەزموونی بەڕێوەبردنی چێشتخانە لە مۆبایلەکەت. چاوەڕێ بن!",
+            close: "باشە!"
         },
         // Features Section
         features: {

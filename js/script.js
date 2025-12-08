@@ -351,6 +351,27 @@ contactForm?.addEventListener('submit', (e) => {
     }
 });
 
+// ===== COMING SOON MODAL =====
+const comingSoonModal = document.getElementById('comingSoonModal');
+
+function showComingSoon() {
+    comingSoonModal.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideComingSoon(event) {
+    if (event && event.target !== comingSoonModal) return;
+    comingSoonModal.classList.remove('visible');
+    document.body.style.overflow = '';
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && comingSoonModal.classList.contains('visible')) {
+        hideComingSoon();
+    }
+});
+
 // ===== CONSOLE BRANDING =====
 console.log('%c TableNow ', 'background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; font-size: 24px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
 console.log('%c Restaurant Management Made Simple 🍽️ ', 'color: #6366f1; font-size: 16px; font-weight: 600;');
