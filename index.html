@@ -245,9 +245,317 @@
         .whatsapp-widget a:hover {
             animation: none;
         }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #021837 0%, #0a2f5f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(2, 24, 55, 0.3);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(2, 24, 55, 0.4);
+        }
+        .back-to-top i {
+            color: white;
+            font-size: 20px;
+        }
+        [dir="rtl"] .back-to-top {
+            right: auto;
+            left: 24px;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1f2937;
+            color: white;
+            padding: 16px 24px;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .cookie-banner.visible {
+            transform: translateY(0);
+        }
+        .cookie-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .cookie-banner p {
+            flex: 1;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .cookie-banner-buttons {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+        .cookie-btn-accept:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        .cookie-btn-decline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .cookie-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark Mode */
+        .dark {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #475569;
+        }
+        .dark body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        .dark .bg-white {
+            background-color: var(--bg-secondary) !important;
+        }
+        .dark .bg-gray-50, .dark .bg-gray-100 {
+            background-color: var(--bg-primary) !important;
+        }
+        .dark .text-gray-900 {
+            color: var(--text-primary) !important;
+        }
+        .dark .text-gray-700, .dark .text-gray-600 {
+            color: var(--text-secondary) !important;
+        }
+        .dark .border-gray-200 {
+            border-color: var(--border-color) !important;
+        }
+        .dark nav {
+            background-color: rgba(30, 41, 59, 0.95) !important;
+        }
+        .dark .whatsapp-widget .tooltip {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        .dark .whatsapp-widget .tooltip::after {
+            border-color: transparent transparent transparent var(--bg-secondary);
+        }
+        [dir="rtl"].dark .whatsapp-widget .tooltip::after {
+            border-color: transparent var(--bg-secondary) transparent transparent;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #e2e8f0;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dark-mode-toggle.active {
+            background: linear-gradient(135deg, #021837 0%, #0a2f5f 100%);
+        }
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-toggle.active::before {
+            transform: translateX(24px);
+        }
+        .dark-mode-toggle i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: opacity 0.3s ease;
+        }
+        .dark-mode-toggle .fa-sun {
+            left: 7px;
+            color: #f59e0b;
+            opacity: 1;
+        }
+        .dark-mode-toggle .fa-moon {
+            right: 7px;
+            color: white;
+            opacity: 0;
+        }
+        .dark-mode-toggle.active .fa-sun {
+            opacity: 0;
+        }
+        .dark-mode-toggle.active .fa-moon {
+            opacity: 1;
+        }
+
+        /* Form Validation Styles */
+        .form-group {
+            position: relative;
+        }
+        .form-error {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        .form-error.visible {
+            display: block;
+        }
+        input.error, textarea.error {
+            border-color: #ef4444 !important;
+            animation: shake 0.5s ease;
+        }
+        input.success, textarea.success {
+            border-color: #22c55e !important;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+        .form-success-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #22c55e;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .form-group.valid .form-success-icon {
+            opacity: 1;
+        }
+        [dir="rtl"] .form-success-icon {
+            right: auto;
+            left: 12px;
+        }
+
+        /* Loading Skeleton Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 8px;
+        }
+        .dark .skeleton {
+            background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+            background-size: 200% 100%;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .skeleton-text {
+            height: 16px;
+            margin-bottom: 8px;
+        }
+        .skeleton-title {
+            height: 32px;
+            width: 60%;
+            margin-bottom: 16px;
+        }
+        .skeleton-image {
+            height: 200px;
+            width: 100%;
+        }
+
+        /* Page Loading Overlay */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .dark .page-loader {
+            background: #0f172a;
+        }
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #021837;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .dark .loader-spinner {
+            border-color: #334155;
+            border-top-color: #60a5fa;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="antialiased" style="font-family: 'Cairo', sans-serif;">
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
@@ -268,6 +576,14 @@
                     <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Features</a></li>
                     <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Pricing</a></li>
                     <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Contact</a></li>
+
+                    <!-- Dark Mode Toggle -->
+                    <li>
+                        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
 
                     <!-- Language Switcher -->
                     <li class="relative group">
@@ -304,6 +620,13 @@
                     <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium block">Features</a></li>
                     <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium block">Pricing</a></li>
                     <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium block">Contact</a></li>
+                    <li class="flex items-center gap-3">
+                        <span data-i18n="nav.darkMode" class="text-gray-700 font-medium">Dark Mode</span>
+                        <button id="darkModeToggleMobile" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                     <li><a href="#" data-i18n="nav.getStarted" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold inline-block text-center">Get Started</a></li>
                 </ul>
             </div>
@@ -762,28 +1085,39 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form class="bg-white rounded-2xl p-8 shadow-lg">
+                <form id="contactForm" class="bg-white rounded-2xl p-8 shadow-lg" novalidate>
                     <div class="space-y-6">
-                        <div>
-                            <input type="text" data-i18n-placeholder="contact.form.name" placeholder="Your Name" required
+                        <div class="form-group">
+                            <input type="text" id="contactName" data-i18n-placeholder="contact.form.name" placeholder="Your Name" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                            <span class="form-success-icon"><i class="fas fa-check-circle"></i></span>
+                            <span class="form-error" data-i18n="contact.form.errors.name">Please enter your name</span>
                         </div>
-                        <div>
-                            <input type="email" data-i18n-placeholder="contact.form.email" placeholder="Your Email" required
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" data-i18n-placeholder="contact.form.email" placeholder="Your Email" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                            <span class="form-success-icon"><i class="fas fa-check-circle"></i></span>
+                            <span class="form-error" data-i18n="contact.form.errors.email">Please enter a valid email</span>
                         </div>
-                        <div>
-                            <input type="text" data-i18n-placeholder="contact.form.subject" placeholder="Subject" required
+                        <div class="form-group">
+                            <input type="text" id="contactSubject" data-i18n-placeholder="contact.form.subject" placeholder="Subject" required
                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors">
+                            <span class="form-success-icon"><i class="fas fa-check-circle"></i></span>
+                            <span class="form-error" data-i18n="contact.form.errors.subject">Please enter a subject</span>
                         </div>
-                        <div>
-                            <textarea data-i18n-placeholder="contact.form.message" placeholder="Your Message" rows="5" required
+                        <div class="form-group">
+                            <textarea id="contactMessage" data-i18n-placeholder="contact.form.message" placeholder="Your Message" rows="5" required
                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-500 focus:outline-none transition-colors resize-none"></textarea>
+                            <span class="form-error" data-i18n="contact.form.errors.message">Please enter your message</span>
                         </div>
-                        <button type="submit" data-i18n="contact.form.button"
-                                class="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        <button type="submit" id="submitBtn" data-i18n="contact.form.button"
+                                class="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                             Send Message
                         </button>
+                        <div id="formSuccessMessage" class="hidden text-center text-green-600 font-medium">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span data-i18n="contact.form.success">Message sent successfully!</span>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -796,6 +1130,24 @@
         <a href="https://wa.me/9647702982325?text=Hello%20TableNow%21%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-banner-content">
+            <p data-i18n="cookie.message">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            </p>
+            <div class="cookie-banner-buttons">
+                <button id="acceptCookies" class="cookie-btn cookie-btn-accept" data-i18n="cookie.accept">Accept</button>
+                <button id="declineCookies" class="cookie-btn cookie-btn-decline" data-i18n="cookie.decline">Decline</button>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->

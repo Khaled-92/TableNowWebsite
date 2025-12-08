@@ -149,19 +149,7 @@ if (heroStatsSection) {
     statsObserver.observe(heroStatsSection);
 }
 
-// ===== FORM HANDLING =====
-const contactForm = document.querySelector('form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Show success message (in production, you would send this to a server)
-        alert('Thank you for your message! We will get back to you soon.');
-
-        // Reset form
-        contactForm.reset();
-    });
-}
+// ===== FORM HANDLING (moved to bottom with validation) =====
 
 // ===== PARALLAX EFFECT FOR HERO IMAGE =====
 window.addEventListener('scroll', () => {
@@ -212,6 +200,183 @@ window.addEventListener('scroll', () => {
             link.classList.add('text-primary-500', 'font-bold');
         }
     });
+});
+
+// ===== PAGE LOADER =====
+window.addEventListener('load', () => {
+    const pageLoader = document.getElementById('pageLoader');
+    if (pageLoader) {
+        setTimeout(() => {
+            pageLoader.classList.add('hidden');
+        }, 500);
+    }
+});
+
+// ===== BACK TO TOP BUTTON =====
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ===== DARK MODE =====
+const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
+const htmlElement = document.documentElement;
+
+// Check for saved preference or system preference
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    htmlElement.classList.add('dark');
+    darkModeToggle?.classList.add('active');
+    darkModeToggleMobile?.classList.add('active');
+}
+
+function toggleDarkMode() {
+    htmlElement.classList.toggle('dark');
+    const isDark = htmlElement.classList.contains('dark');
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    darkModeToggle?.classList.toggle('active', isDark);
+    darkModeToggleMobile?.classList.toggle('active', isDark);
+}
+
+darkModeToggle?.addEventListener('click', toggleDarkMode);
+darkModeToggleMobile?.addEventListener('click', toggleDarkMode);
+
+// ===== COOKIE CONSENT =====
+const cookieBanner = document.getElementById('cookieBanner');
+const acceptCookiesBtn = document.getElementById('acceptCookies');
+const declineCookiesBtn = document.getElementById('declineCookies');
+
+// Check if user already made a choice
+const cookieConsent = localStorage.getItem('cookieConsent');
+
+if (!cookieConsent) {
+    // Show banner after a short delay
+    setTimeout(() => {
+        cookieBanner.classList.add('visible');
+    }, 1500);
+}
+
+acceptCookiesBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookieBanner.classList.remove('visible');
+});
+
+declineCookiesBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookieBanner.classList.remove('visible');
+});
+
+// ===== FORM VALIDATION =====
+const contactForm = document.getElementById('contactForm');
+const formFields = {
+    name: document.getElementById('contactName'),
+    email: document.getElementById('contactEmail'),
+    subject: document.getElementById('contactSubject'),
+    message: document.getElementById('contactMessage')
+};
+const submitBtn = document.getElementById('submitBtn');
+const formSuccessMessage = document.getElementById('formSuccessMessage');
+
+// Email validation regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateField(field, validationFn) {
+    const formGroup = field.parentElement;
+    const errorSpan = formGroup.querySelector('.form-error');
+    const isValid = validationFn(field.value);
+
+    field.classList.remove('error', 'success');
+    formGroup.classList.remove('valid');
+    errorSpan?.classList.remove('visible');
+
+    if (field.value.trim() !== '') {
+        if (isValid) {
+            field.classList.add('success');
+            formGroup.classList.add('valid');
+        } else {
+            field.classList.add('error');
+            errorSpan?.classList.add('visible');
+        }
+    }
+
+    return isValid;
+}
+
+// Real-time validation
+formFields.name?.addEventListener('blur', () => {
+    validateField(formFields.name, value => value.trim().length >= 2);
+});
+
+formFields.email?.addEventListener('blur', () => {
+    validateField(formFields.email, value => emailRegex.test(value));
+});
+
+formFields.subject?.addEventListener('blur', () => {
+    validateField(formFields.subject, value => value.trim().length >= 3);
+});
+
+formFields.message?.addEventListener('blur', () => {
+    validateField(formFields.message, value => value.trim().length >= 10);
+});
+
+// Form submission
+contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validate all fields
+    const isNameValid = validateField(formFields.name, value => value.trim().length >= 2);
+    const isEmailValid = validateField(formFields.email, value => emailRegex.test(value));
+    const isSubjectValid = validateField(formFields.subject, value => value.trim().length >= 3);
+    const isMessageValid = validateField(formFields.message, value => value.trim().length >= 10);
+
+    if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+
+        // Simulate form submission (replace with actual API call)
+        setTimeout(() => {
+            // Show success message
+            formSuccessMessage.classList.remove('hidden');
+
+            // Reset form
+            contactForm.reset();
+
+            // Remove validation states
+            Object.values(formFields).forEach(field => {
+                field?.classList.remove('success', 'error');
+                field?.parentElement.classList.remove('valid');
+            });
+
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitBtn.getAttribute('data-i18n') === 'contact.form.button'
+                ? (translations[currentLang]?.contact?.form?.button || 'Send Message')
+                : 'Send Message';
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formSuccessMessage.classList.add('hidden');
+            }, 5000);
+        }, 1500);
+    }
 });
 
 // ===== CONSOLE BRANDING =====

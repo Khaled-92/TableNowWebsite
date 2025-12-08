@@ -15,7 +15,8 @@ const translations = {
             features: "Features",
             pricing: "Pricing",
             contact: "Contact",
-            getStarted: "Get Started"
+            getStarted: "Get Started",
+            darkMode: "Dark Mode"
         },
         // Hero Section
         hero: {
@@ -152,8 +153,21 @@ const translations = {
                 email: "Your Email",
                 subject: "Subject",
                 message: "Your Message",
-                button: "Send Message"
+                button: "Send Message",
+                success: "Message sent successfully!",
+                errors: {
+                    name: "Please enter your name",
+                    email: "Please enter a valid email",
+                    subject: "Please enter a subject",
+                    message: "Please enter your message"
+                }
             }
+        },
+        // Cookie Consent
+        cookie: {
+            message: "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
+            accept: "Accept",
+            decline: "Decline"
         },
         // Footer
         footer: {
@@ -204,7 +218,8 @@ const translations = {
             features: "المميزات",
             pricing: "الأسعار",
             contact: "اتصل بنا",
-            getStarted: "ابدأ الآن"
+            getStarted: "ابدأ الآن",
+            darkMode: "الوضع الداكن"
         },
         // Hero Section
         hero: {
@@ -341,8 +356,21 @@ const translations = {
                 email: "بريدك الإلكتروني",
                 subject: "الموضوع",
                 message: "رسالتك",
-                button: "إرسال الرسالة"
+                button: "إرسال الرسالة",
+                success: "تم إرسال الرسالة بنجاح!",
+                errors: {
+                    name: "يرجى إدخال اسمك",
+                    email: "يرجى إدخال بريد إلكتروني صالح",
+                    subject: "يرجى إدخال الموضوع",
+                    message: "يرجى إدخال رسالتك"
+                }
             }
+        },
+        // Cookie Consent
+        cookie: {
+            message: "نستخدم ملفات تعريف الارتباط لتحسين تجربتك. بمتابعة زيارة هذا الموقع، فإنك توافق على استخدامنا لملفات تعريف الارتباط.",
+            accept: "قبول",
+            decline: "رفض"
         },
         // Footer
         footer: {
@@ -393,7 +421,8 @@ const translations = {
             features: "تایبەتمەندییەکان",
             pricing: "نرخەکان",
             contact: "پەیوەندی",
-            getStarted: "دەست پێبکە"
+            getStarted: "دەست پێبکە",
+            darkMode: "دۆخی تاریک"
         },
         // Hero Section
         hero: {
@@ -530,8 +559,21 @@ const translations = {
                 email: "ئیمەیڵەکەت",
                 subject: "بابەت",
                 message: "نامەکەت",
-                button: "ناردنی نامە"
+                button: "ناردنی نامە",
+                success: "نامەکە بە سەرکەوتوویی نێردرا!",
+                errors: {
+                    name: "تکایە ناوەکەت بنووسە",
+                    email: "تکایە ئیمەیڵێکی دروست بنووسە",
+                    subject: "تکایە بابەتەکە بنووسە",
+                    message: "تکایە نامەکەت بنووسە"
+                }
             }
+        },
+        // Cookie Consent
+        cookie: {
+            message: "ئێمە کوکیز بەکاردەهێنین بۆ باشترکردنی ئەزموونەکەت. بە بەردەوامبوون لە سەردانی ئەم ماڵپەڕە، تۆ ڕازی دەبیت بە بەکارهێنانی کوکیزەکانمان.",
+            accept: "پەسەندکردن",
+            decline: "ڕەتکردنەوە"
         },
         // Footer
         footer: {
