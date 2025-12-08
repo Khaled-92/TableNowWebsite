@@ -230,34 +230,6 @@ backToTopBtn.addEventListener('click', () => {
     });
 });
 
-// ===== DARK MODE =====
-const darkModeToggle = document.getElementById('darkModeToggle');
-const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
-const htmlElement = document.documentElement;
-
-// Check for saved preference or system preference
-const savedTheme = localStorage.getItem('theme');
-const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    htmlElement.classList.add('dark');
-    darkModeToggle?.classList.add('active');
-    darkModeToggleMobile?.classList.add('active');
-}
-
-function toggleDarkMode() {
-    htmlElement.classList.toggle('dark');
-    const isDark = htmlElement.classList.contains('dark');
-
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-    darkModeToggle?.classList.toggle('active', isDark);
-    darkModeToggleMobile?.classList.toggle('active', isDark);
-}
-
-darkModeToggle?.addEventListener('click', toggleDarkMode);
-darkModeToggleMobile?.addEventListener('click', toggleDarkMode);
-
 // ===== COOKIE CONSENT =====
 const cookieBanner = document.getElementById('cookieBanner');
 const acceptCookiesBtn = document.getElementById('acceptCookies');

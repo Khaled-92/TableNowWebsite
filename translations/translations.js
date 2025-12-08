@@ -15,8 +15,7 @@ const translations = {
             features: "Features",
             pricing: "Pricing",
             contact: "Contact",
-            getStarted: "Get Started",
-            darkMode: "Dark Mode"
+            getStarted: "Get Started"
         },
         // Hero Section
         hero: {
@@ -218,8 +217,7 @@ const translations = {
             features: "المميزات",
             pricing: "الأسعار",
             contact: "اتصل بنا",
-            getStarted: "ابدأ الآن",
-            darkMode: "الوضع الداكن"
+            getStarted: "ابدأ الآن"
         },
         // Hero Section
         hero: {
@@ -421,8 +419,7 @@ const translations = {
             features: "تایبەتمەندییەکان",
             pricing: "نرخەکان",
             contact: "پەیوەندی",
-            getStarted: "دەست پێبکە",
-            darkMode: "دۆخی تاریک"
+            getStarted: "دەست پێبکە"
         },
         // Hero Section
         hero: {

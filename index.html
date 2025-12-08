@@ -347,100 +347,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Dark Mode */
-        .dark {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --border-color: #475569;
-        }
-        .dark body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-        .dark .bg-white {
-            background-color: var(--bg-secondary) !important;
-        }
-        .dark .bg-gray-50, .dark .bg-gray-100 {
-            background-color: var(--bg-primary) !important;
-        }
-        .dark .text-gray-900 {
-            color: var(--text-primary) !important;
-        }
-        .dark .text-gray-700, .dark .text-gray-600 {
-            color: var(--text-secondary) !important;
-        }
-        .dark .border-gray-200 {
-            border-color: var(--border-color) !important;
-        }
-        .dark nav {
-            background-color: rgba(30, 41, 59, 0.95) !important;
-        }
-        .dark .whatsapp-widget .tooltip {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-        }
-        .dark .whatsapp-widget .tooltip::after {
-            border-color: transparent transparent transparent var(--bg-secondary);
-        }
-        [dir="rtl"].dark .whatsapp-widget .tooltip::after {
-            border-color: transparent var(--bg-secondary) transparent transparent;
-        }
-
-        /* Dark Mode Toggle */
-        .dark-mode-toggle {
-            position: relative;
-            width: 50px;
-            height: 26px;
-            background: #e2e8f0;
-            border-radius: 13px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .dark-mode-toggle.active {
-            background: linear-gradient(135deg, #021837 0%, #0a2f5f 100%);
-        }
-        .dark-mode-toggle::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .dark-mode-toggle.active::before {
-            transform: translateX(24px);
-        }
-        .dark-mode-toggle i {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 12px;
-            transition: opacity 0.3s ease;
-        }
-        .dark-mode-toggle .fa-sun {
-            left: 7px;
-            color: #f59e0b;
-            opacity: 1;
-        }
-        .dark-mode-toggle .fa-moon {
-            right: 7px;
-            color: white;
-            opacity: 0;
-        }
-        .dark-mode-toggle.active .fa-sun {
-            opacity: 0;
-        }
-        .dark-mode-toggle.active .fa-moon {
-            opacity: 1;
-        }
-
         /* Form Validation Styles */
         .form-group {
             position: relative;
@@ -490,10 +396,6 @@
             animation: skeleton-loading 1.5s infinite;
             border-radius: 8px;
         }
-        .dark .skeleton {
-            background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
-            background-size: 200% 100%;
-        }
         @keyframes skeleton-loading {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
@@ -526,9 +428,6 @@
             z-index: 99999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        .dark .page-loader {
-            background: #0f172a;
-        }
         .page-loader.hidden {
             opacity: 0;
             visibility: hidden;
@@ -540,10 +439,6 @@
             border-top-color: #021837;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-        }
-        .dark .loader-spinner {
-            border-color: #334155;
-            border-top-color: #60a5fa;
         }
         @keyframes spin {
             to { transform: rotate(360deg); }
@@ -576,14 +471,6 @@
                     <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Features</a></li>
                     <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Pricing</a></li>
                     <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium transition-colors">Contact</a></li>
-
-                    <!-- Dark Mode Toggle -->
-                    <li>
-                        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
 
                     <!-- Language Switcher -->
                     <li class="relative group">
@@ -620,13 +507,6 @@
                     <li><a href="#features" data-i18n="nav.features" class="text-gray-700 hover:text-primary-500 font-medium block">Features</a></li>
                     <li><a href="#pricing" data-i18n="nav.pricing" class="text-gray-700 hover:text-primary-500 font-medium block">Pricing</a></li>
                     <li><a href="#contact" data-i18n="nav.contact" class="text-gray-700 hover:text-primary-500 font-medium block">Contact</a></li>
-                    <li class="flex items-center gap-3">
-                        <span data-i18n="nav.darkMode" class="text-gray-700 font-medium">Dark Mode</span>
-                        <button id="darkModeToggleMobile" class="dark-mode-toggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
                     <li><a href="#" data-i18n="nav.getStarted" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-lg font-semibold inline-block text-center">Get Started</a></li>
                 </ul>
             </div>
