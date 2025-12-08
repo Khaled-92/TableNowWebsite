@@ -1,6 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Source files for content scanning */
+@source "../*.html";
+@source "../js/*.js";
+
+/* Custom Theme for Tailwind v4 */
+@theme {
+    --color-primary-50: #e6f0ff;
+    --color-primary-100: #cce0ff;
+    --color-primary-400: #0a4080;
+    --color-primary-500: #021837;
+    --color-primary-600: #011226;
+    --color-primary-700: #010d1a;
+
+    --color-secondary-500: #0a2f5f;
+    --color-secondary-600: #082649;
+
+    --animate-float: float 3s ease-in-out infinite;
+    --animate-fade-in-up: fadeInUp 0.6s ease-out;
+    --animate-slide-in: slideIn 0.5s ease-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
 
 /* Custom Styles */
 @keyframes gradient {
