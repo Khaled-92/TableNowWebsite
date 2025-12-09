@@ -19,6 +19,20 @@ function changeLanguage(lang) {
     updateDirectionStyles();
     updateMetaTags();
     updateJsonLd();
+    updateHeroImage();
+}
+
+// Update hero image based on language
+function updateHeroImage() {
+    const heroImage = document.getElementById('heroImage');
+    const heroImageWebp = document.getElementById('heroImageWebp');
+
+    if (heroImage) {
+        heroImage.src = `images/ipad-header_${currentLang}.png`;
+    }
+    if (heroImageWebp) {
+        heroImageWebp.srcset = `images/ipad-header_${currentLang}.webp`;
+    }
 }
 
 // Update meta tags for SEO
@@ -188,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDirectionStyles();
     updateMetaTags();
     updateJsonLd();
+    updateHeroImage();
 
     // Set dynamic copyright year
     const yearElement = document.getElementById('currentYear');
