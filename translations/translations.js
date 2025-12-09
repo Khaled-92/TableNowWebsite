@@ -114,34 +114,56 @@ const translations = {
             subtitle: "Choose the plan that fits your restaurant",
             starter: {
                 name: "Starter",
-                price: "35,000",
-                currency: "IQD",
+                description: "For small cafés & new restaurants",
+                price: "39",
                 period: "/month",
                 features: [
-                    "Up to 100 reservations/month",
-                    "1 restaurant location",
+                    "Up to 30 reservations/month",
                     "Basic analytics",
                     "Email support",
-                    "Mobile app access"
+                    "Basic CRM",
+                    "Reservation link for social media",
+                    "100 WhatsApp messages/month"
                 ],
                 button: "Get Started"
             },
             professional: {
-                badge: "MOST POPULAR",
                 name: "Professional",
-                price: "95,000",
-                currency: "IQD",
+                description: "For active restaurants that need automation",
+                price: "99",
+                period: "/month",
+                features: [
+                    "Up to 150 reservations/month",
+                    "Advanced analytics",
+                    "Custom branding",
+                    "Staff roles & permissions",
+                    "Table management & waitlist",
+                    "Full CRM",
+                    "500 WhatsApp messages/month"
+                ],
+                button: "Get Started"
+            },
+            premium: {
+                badge: "MOST POPULAR",
+                name: "Premium",
+                description: "For busy restaurants, lounges & large venues",
+                price: "149",
                 period: "/month",
                 features: [
                     "Unlimited reservations",
-                    "Up to 3 locations",
-                    "Advanced analytics",
-                    "Priority support",
-                    "Loyalty programs",
-                    "WhatsApp integration",
-                    "Custom branding"
+                    "Full CRM dashboard + insights",
+                    "Advanced loyalty tiers + badges",
+                    "AI no-show prediction",
+                    "POS/ERP integration",
+                    "Custom reports & dashboards",
+                    "Dedicated account manager",
+                    "2,000 WhatsApp messages/month"
                 ],
                 button: "Get Started"
+            },
+            overage: {
+                title: "Need more WhatsApp messages?",
+                description: "Every additional 100 messages = <strong>$5</strong>"
             }
         },
         // CTA
@@ -389,34 +411,56 @@ const translations = {
             subtitle: "اختر الخطة المناسبة لمطعمك",
             starter: {
                 name: "المبتدئ",
-                price: "35,000",
-                currency: "د.ع",
+                description: "للمقاهي الصغيرة والمطاعم الجديدة",
+                price: "39",
                 period: "/شهر",
                 features: [
-                    "حتى 100 حجز/شهر",
-                    "موقع مطعم واحد",
+                    "حتى 30 حجز/شهر",
                     "تحليلات أساسية",
                     "دعم بريد إلكتروني",
-                    "الوصول إلى تطبيق الجوال"
+                    "إدارة علاقات العملاء الأساسية",
+                    "رابط الحجز لوسائل التواصل الاجتماعي",
+                    "100 رسالة واتساب/شهر"
                 ],
                 button: "ابدأ الآن"
             },
             professional: {
-                badge: "الأكثر شعبية",
                 name: "المحترف",
-                price: "95,000",
-                currency: "د.ع",
+                description: "للمطاعم النشطة التي تحتاج إلى الأتمتة",
+                price: "99",
+                period: "/شهر",
+                features: [
+                    "حتى 150 حجز/شهر",
+                    "تحليلات متقدمة",
+                    "علامة تجارية مخصصة",
+                    "أدوار الموظفين والصلاحيات",
+                    "إدارة الطاولات وقائمة الانتظار",
+                    "إدارة علاقات العملاء الكاملة",
+                    "500 رسالة واتساب/شهر"
+                ],
+                button: "ابدأ الآن"
+            },
+            premium: {
+                badge: "الأكثر شعبية",
+                name: "المميز",
+                description: "للمطاعم المزدحمة والصالات والأماكن الكبيرة",
+                price: "149",
                 period: "/شهر",
                 features: [
                     "حجوزات غير محدودة",
-                    "حتى 3 مواقع",
-                    "تحليلات متقدمة",
-                    "دعم أولوية",
-                    "برامج الولاء",
-                    "تكامل واتساب",
-                    "علامة تجارية مخصصة"
+                    "لوحة تحكم CRM كاملة + رؤى",
+                    "مستويات ولاء متقدمة + شارات",
+                    "توقع عدم الحضور بالذكاء الاصطناعي",
+                    "تكامل POS/ERP",
+                    "تقارير ولوحات تحكم مخصصة",
+                    "مدير حساب مخصص",
+                    "2,000 رسالة واتساب/شهر"
                 ],
                 button: "ابدأ الآن"
+            },
+            overage: {
+                title: "تحتاج المزيد من رسائل واتساب؟",
+                description: "كل 100 رسالة إضافية = <strong>$5</strong>"
             }
         },
         // CTA
@@ -664,34 +708,56 @@ const translations = {
             subtitle: "پلانەکە هەڵبژێرە کە گونجاوە بۆ چێشتخانەکەت",
             starter: {
                 name: "دەستپێکەر",
-                price: "35,000",
-                currency: "د.ع",
+                description: "بۆ کافێ بچووکەکان و چێشتخانە نوێیەکان",
+                price: "39",
                 period: "/مانگ",
                 features: [
-                    "تا 100 حجز/مانگ",
-                    "1 شوێنی چێشتخانە",
+                    "تا 30 حجز/مانگ",
                     "شیکاری بنەڕەتی",
                     "پشتگیری ئیمەیڵ",
-                    "دەستڕاگەیشتن بە ئەپی مۆبایل"
+                    "بەڕێوەبردنی کڕیاری بنەڕەتی",
+                    "لینکی حجز بۆ تۆڕە کۆمەڵایەتییەکان",
+                    "100 نامەی واتساپ/مانگ"
                 ],
                 button: "دەست پێبکە"
             },
             professional: {
-                badge: "زۆرترین بەناوبانگ",
                 name: "پیشەیی",
-                price: "95,000",
-                currency: "د.ع",
+                description: "بۆ چێشتخانە چالاکەکان کە پێویستیان بە خۆکارکردن هەیە",
+                price: "99",
+                period: "/مانگ",
+                features: [
+                    "تا 150 حجز/مانگ",
+                    "شیکاری پێشکەوتوو",
+                    "براندی تایبەت",
+                    "ڕۆڵی کارمەندان و مۆڵەتەکان",
+                    "بەڕێوەبردنی مێز و لیستی چاوەڕوانی",
+                    "بەڕێوەبردنی کڕیاری تەواو",
+                    "500 نامەی واتساپ/مانگ"
+                ],
+                button: "دەست پێبکە"
+            },
+            premium: {
+                badge: "زۆرترین بەناوبانگ",
+                name: "پریمیۆم",
+                description: "بۆ چێشتخانە قەرەباڵغەکان، لاونجەکان و شوێنە گەورەکان",
+                price: "149",
                 period: "/مانگ",
                 features: [
                     "حجزی بێسنوور",
-                    "تا 3 شوێن",
-                    "شیکاری پێشکەوتوو",
-                    "پشتگیری لە پێشینە",
-                    "بەرنامەی دڵسۆزی",
-                    "یەکخستنی واتساپ",
-                    "براندی تایبەت"
+                    "داشبۆردی CRM تەواو + تێڕوانین",
+                    "ئاستی دڵسۆزی پێشکەوتوو + نیشانەکان",
+                    "پێشبینیکردنی نەهاتن بە AI",
+                    "یەکخستنی POS/ERP",
+                    "ڕاپۆرت و داشبۆردی تایبەت",
+                    "بەڕێوەبەری هەژماری تایبەت",
+                    "2,000 نامەی واتساپ/مانگ"
                 ],
                 button: "دەست پێبکە"
+            },
+            overage: {
+                title: "پێویستت بە نامەی واتساپی زیاترە؟",
+                description: "هەر 100 نامەی زیادە = <strong>$5</strong>"
             }
         },
         // CTA
